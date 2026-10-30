@@ -1,0 +1,9 @@
+{
+  "base_url": "http://127.0.0.1:11434",
+  "model": "gpt-oss:20b",
+  "expected_digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+  "timeout_seconds": 180,
+  "num_ctx": 4096,
+  "num_predict": 1200,
+  "max_corrections": 2
+}
