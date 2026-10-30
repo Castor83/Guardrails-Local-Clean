@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+logs/*
+!logs/.gitkeep
+work/
+
+
+# Local and private data
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.key
+__pycache__/
+.venv/
+node_modules/
+logs/
+runtime/
+data/
+daten/
+dokumente/
+Chats/
