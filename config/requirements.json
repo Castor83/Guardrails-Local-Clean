@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "requirements": [
+    {"requirement_id":"LOCAL_ONLY","description":"Alle neu eingesetzten generativen KI-Modelle laufen lokal.","category":"global","severity":"critical","verification_method":"local_execution","source":"ORIGINALAUFTRAG Abschnitte 4.1 und 17","status":"active"},
+    {"requirement_id":"NO_PAID_API","description":"Keine kostenpflichtigen Modell-APIs oder zusätzliche Cloud-KI.","category":"global","severity":"critical","verification_method":"no_paid_api","source":"ORIGINALAUFTRAG 4.1","status":"active"},
+    {"requirement_id":"ABLITERATED","description":"Tatsächlich belegte Abliterated-/Uncensored-Variante; Umbenennung reicht nicht.","category":"global","severity":"critical","verification_method":"catalog_provenance","source":"ORIGINALAUFTRAG 4.2","status":"active"},
+    {"requirement_id":"HARDWARE","description":"Maximal 16 GB VRAM; Kontext und Messung berücksichtigen.","category":"technical","severity":"critical","verification_method":"documented_resources","source":"ORIGINALAUFTRAG 5","status":"active"},
+    {"requirement_id":"EVIDENCE","description":"Unbekannte Angaben nicht als überprüfte Fakten behandeln.","category":"quality","severity":"error","verification_method":"evidence_binding","source":"ORIGINALAUFTRAG 1 und 9","status":"active"},
+    {"requirement_id":"PROJECT_POLICY","description":"Zusätzliche aktive Projektausschlüsse einhalten.","category":"project","severity":"critical","verification_method":"project_rules","source":"ORIGINALAUFTRAG Test 4","status":"active"},
+    {"requirement_id":"SEMANTIC_REVIEW","description":"Unabhängiger Critic prüft Widersprüche, Vollständigkeit und Schlussfolgerungen.","category":"quality","severity":"error","verification_method":"critic","source":"ORIGINALAUFTRAG 9.4","status":"active"},
+    {"requirement_id":"INDEPENDENCE","description":"Lokaler Entwickler und Critic verwenden unterschiedliche Basismodellfamilien.","category":"technical","severity":"critical","verification_method":"model_family","source":"ORIGINALAUFTRAG 4.3","status":"active"}
+  ]
+}

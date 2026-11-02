@@ -1,0 +1,17 @@
+[
+  {
+    "text": "Verwende huihui_ai/gpt-oss-abliterated:20b-mxfp4 lokal über Ollama mit Kontext 16384.",
+    "source": "fixture-correction",
+    "task": "Modell- und API-Empfehlung prüfen",
+    "recommendations": [
+      {
+        "model": "huihui_ai/gpt-oss-abliterated:20b-mxfp4",
+        "execution": "local",
+        "context_tokens": 16384,
+        "estimated_vram_gb": null,
+        "evidence_quote": "Verwende huihui_ai/gpt-oss-abliterated:20b-mxfp4 lokal über Ollama mit Kontext 16384."
+      }
+    ],
+    "extraction_status": "complete"
+  }
+]

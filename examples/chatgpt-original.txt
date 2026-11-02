@@ -1,0 +1,22 @@
+To install Guardrails AI, you can use pip. Run the following command in your terminal:
+
+pip install guardrails-ai
+
+After installing the core package, you need to configure the CLI and download the specific validators you plan to use from the Guardrails Hub. 
+
+1. Initialize the Guardrails CLI:
+   guardrails configure
+
+2. Install a specific validator (for example, for regex matching or JSON schema validation):
+   guardrails hub install hub://guardrails/regex_match
+
+You can then import Guardrails in your Python script:
+
+import guardrails as gd
+from guardrails.hub import RegexMatch
+
+# Initialize Guard with desired validators
+guard = gd.Guard.from_string(
+    validators=[RegexMatch(regex="^[A-Za-z0-9]+$")],
+    description="Example validation guard"
+)

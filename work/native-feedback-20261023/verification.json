@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-10-23T16:36:16.494969+00:00",
+  "attempt_status": "ERROR",
+  "native_host_acceptance": "UNVERIFIED",
+  "overall_status": "NOT_ACCEPTED",
+  "test_thread_id": "01a16997-5905-72f0-8537-a4a1b3f2bc4e",
+  "retry_performed": false,
+  "operator_unchanged": true,
+  "T0_T1_T2_equal": true,
+  "temporary_handler": "ABSENT",
+  "production_source_hashes_match": true,
+  "offline_helper_tests": 7,
+  "helper_tests_are_not_native_acceptance": true,
+  "artifacts": {
+    "baseline-hooks.json": "1fa6a9d9624e3acc6a94e33344cd1549372ea51e5192d2a837a06e4711079ab1",
+    "control.py": "ee0e44af91b8a0b424ae56713fe5f758c6028d932635a16ba18d4bcd8b14bacd",
+    "helper-green.txt": "0b9b0521296add58ed1cefafd003f4feca3fc1974088976c9715044389b6b7e2",
+    "helper-red.txt": "58c6458abd236b0d69ceecf937a4f57af29d8a06c2b6a0644146d684d9d0cf27",
+    "helper-review-red.txt": "677774450ea43d05c545c2c03c6b41503ca57116f5190d4c5cb7c37c680611df",
+    "observer-source.py": "30a7141f2a0b4813bcdff5c8ad5c1e204813409fcbbd00e4106862df9e69c2ca",
+    "preparation-error.json": "6da94e6f5efd92627a17b987e4d86c6d574169d7fdce76a8bf4f8b220bfffb23",
+    "rpc-stderr.log": "dab4e19cde88df947dc8b225fee95d08f22aac2d07d7e10e66b5869cb22ca1c1",
+    "run-state.json": "9badbebcbc8d68a6cecfadb0ae3a4f114f5f98d4eeb54e84e27e7c4bee15d339",
+    "T0.json": "6632fee7da249d5bb8987f6fe99520ebe580edf57aad0907503ab61d6001d6b8",
+    "T1.json": "6632fee7da249d5bb8987f6fe99520ebe580edf57aad0907503ab61d6001d6b8",
+    "T2.json": "6632fee7da249d5bb8987f6fe99520ebe580edf57aad0907503ab61d6001d6b8",
+    "test_control_offline.py": "543caaee13a28a749b0fd9b9344255c26d19c049b26e0a216875397bb21d55ef"
+  }
+}

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+logs/*
+!logs/.gitkeep
+work/
+
+# Locally generated Graphify map and extraction cache.
+graphify-out/

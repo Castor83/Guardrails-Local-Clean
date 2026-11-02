@@ -1,0 +1,12 @@
+{
+  "acquisition": "Vom Benutzer als unveränderter ChatGPT-Antworttext in diesem Chat eingefügt.",
+  "automatic_capture": false,
+  "independently_authenticated_origin": false,
+  "text_transformation": "Keine; Textfeld direkt als UTF-8 ohne zusätzliche Endzeile gespeichert.",
+  "sha256": "655505061310237da782c5387de66d3cddc7f254282c243dfb54d313e62923bd",
+  "utf8_bytes": 756,
+  "characters": 756,
+  "request_reference": "Antwort auf request_user_input_async: ChatGPT-Herkunftsnachweis",
+  "source": "chatgpt",
+  "installed_commands_executed": false
+}

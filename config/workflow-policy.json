@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "source_sha256": "efaaf16db0dee2c011185c500ddf564c7b760c4ef17682f133302677f85333c7",
+  "minimum_tests": 128,
+  "decisions": [
+    {"id":"ORIGINAL_TASK","description":"Den tatsächlichen Nutzerauftrag erhalten; Vorgaben nicht selbst abschwächen.","source":"docs/ORIGINALAUFTRAG.txt"},
+    {"id":"SCOPED_WORK","description":"Nur das autorisierte Arbeitsrepository ändern; fremde Projekte und synchronisierte Quellen erhalten.","source":"docs/ORIGINALAUFTRAG.txt"},
+    {"id":"NO_NEW_RUNTIME","description":"Vorhandene Infrastruktur zuerst nutzen. Zusätzliche lokale Pakete, Dienste oder Modelle sind nur für beauftragte Einrichtungen zulässig, wenn vorhandene Komponenten nachweislich nicht ausreichen. Keine zusätzlichen Cloud-Prüfer oder kostenpflichtigen Modell-APIs; keine ungefragten Providerwechsel.","source":"docs/ORIGINALAUFTRAG.txt"},
+    {"id":"BOUNDED_CORRECTION","description":"Höchstens zwei Korrekturen; unbelegte Critic-Hinweise sind keine Benutzeraufträge.","source":"docs/ORIGINALAUFTRAG.txt"},
+    {"id":"COMPLETION_EVIDENCE","description":"Abschluss nur mit tatsächlichem, auftragsgebundenem Prüfbeleg für den aktuellen Dateistand.","source":"docs/ORIGINALAUFTRAG.txt"}
+  ]
+}
