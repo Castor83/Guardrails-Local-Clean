@@ -1,0 +1,236 @@
+{
+  "framework": "promptfoo",
+  "version": "0.124.1",
+  "node": "24.20.0",
+  "npm": "11.19.0",
+  "node_requirement": ">=22.22.0",
+  "source_metadata_url": "https://registry.npmjs.org/promptfoo/0.124.1",
+  "npm_artifact": {
+    "version": "0.124.1",
+    "resolved": "https://registry.npmjs.org/promptfoo/-/promptfoo-0.124.1.tgz",
+    "integrity": "sha512-Y6fq/WGTL7lPvDsirNSmmmcPLhURwRao03iv8fCoLbFq6H1eqg5VVTmXiap5Jl+fiRaQQZXYMHb2N1gQm1tGyQ==",
+    "license": "MIT",
+    "workspaces": [
+      "src/app",
+      "site"
+    ],
+    "dependencies": {
+      "@anthropic-ai/sdk": "0.128.0",
+      "@apidevtools/json-schema-ref-parser": "^16.0.3",
+      "@hono/node-server": "2.1.1",
+      "@inquirer/checkbox": "^5.1.0",
+      "@inquirer/confirm": "^6.0.8",
+      "@inquirer/core": "^12.0.0",
+      "@inquirer/editor": "^5.0.8",
+      "@inquirer/input": "^5.0.8",
+      "@inquirer/search": "^4.1.8",
+      "@inquirer/select": "^5.1.0",
+      "@libsql/client": "^0.18.0",
+      "@opentelemetry/api": "^1.9.0",
+      "@opentelemetry/core": "2.11.0",
+      "@opentelemetry/exporter-trace-otlp-http": "^0.222.0",
+      "@opentelemetry/resources": "^2.6.0",
+      "@opentelemetry/sdk-trace-node": "^2.6.0",
+      "@opentelemetry/semantic-conventions": "^1.40.0",
+      "acorn": "^8.18.0",
+      "ai": "^6.0.286",
+      "ajv": "^8.18.0",
+      "ajv-formats": "^3.0.1",
+      "async": "^3.2.6",
+      "binary-extensions": "^3.2.0",
+      "cache-manager": ">=7.2.8 <7.2.10",
+      "chalk": "^6.0.0",
+      "chokidar": "5.0.0",
+      "cli-progress": "^3.12.0",
+      "cli-table3": "^0.6.5",
+      "commander": "^15.0.0",
+      "compression": "^1.8.2",
+      "cors": "^2.8.6",
+      "csv-parse": "^7.0.3",
+      "csv-stringify": "^6.9.0",
+      "dedent": "^1.7.2",
+      "drizzle-orm": "^0.45.3",
+      "express": "^5.2.1",
+      "exsolve": "^1.0.8",
+      "fast-deep-equal": "^3.1.3",
+      "fast-safe-stringify": "^2.1.1",
+      "fast-xml-parser": "^5.7.1",
+      "fastest-levenshtein": "^1.0.16",
+      "gcp-metadata": "^9.0.2",
+      "glob": "^13.0.6",
+      "http-z": "^8.1.1",
+      "istextorbinary": "^9.5.0",
+      "js-rouge": "^3.2.0",
+      "js-yaml": "5.4.2",
+      "json5": "^2.2.3",
+      "keyv": "^5.6.0",
+      "keyv-file": "^5.3.3",
+      "lru-cache": "^11.5.3",
+      "mathjs": "^15.1.1",
+      "minimatch": "^10.2.4",
+      "nunjucks": "^3.2.4",
+      "openai": "^7.20.0",
+      "opener": "^1.5.2",
+      "ora": "^9.3.0",
+      "parse5": "^8.0.0",
+      "posthog-node": "~5.24.10",
+      "protobufjs": "^8.7.2",
+      "proxy-agent": "^8.0.0",
+      "proxy-from-env": "^2.1.0",
+      "python-shell": "^5.0.0",
+      "rfdc": "^1.4.1",
+      "saxes": "^6.0.0",
+      "semver": "^7.7.4",
+      "signal-exit": "4.1.0",
+      "simple-git": "^4.0.2",
+      "socket.io": "^4.8.4",
+      "socket.io-client": "^4.8.4",
+      "text-extensions": "^3.1.0",
+      "tsx": "^4.23.11",
+      "undici": ">=7.29.1 <8",
+      "winston": "^3.19.0",
+      "ws": "^8.21.3",
+      "zod": "^4.3.6"
+    },
+    "bin": {
+      "pf": "dist/src/entrypoint.js",
+      "promptfoo": "dist/src/entrypoint.js"
+    },
+    "engines": {
+      "node": ">=22.22.0"
+    },
+    "optionalDependencies": {
+      "@anthropic-ai/claude-agent-sdk": "0.3.283",
+      "@aws-sdk/client-bedrock-agent-runtime": "^3.1045.0",
+      "@aws-sdk/client-bedrock-runtime": "^3.1045.0",
+      "@aws-sdk/client-s3": "^3.1003.0",
+      "@aws-sdk/client-sagemaker-runtime": "^3.1045.0",
+      "@aws-sdk/credential-provider-sso": "^3.972.16",
+      "@aws/bedrock-token-generator": "^1.1.0",
+      "@azure/ai-projects": "^2.1.1",
+      "@azure/identity": "^4.13.3",
+      "@azure/msal-node": "^7.0.0",
+      "@azure/storage-blob": "^12.31.0",
+      "@fal-ai/client": "~1.10.1",
+      "@googleapis/sheets": "^18.0.1",
+      "@modelcontextprotocol/sdk": "^1.32.0",
+      "@modelcontextprotocol/server-filesystem": "2026.8.31",
+      "@openai/codex-sdk": "^0.156.1",
+      "@opencode-ai/sdk": "^1.18.32",
+      "@smithy/node-http-handler": "^4.4.14",
+      "google-auth-library": "^11.1.0",
+      "hono": "^4.13.9",
+      "jks-js": "^1.1.5",
+      "natural": "^8.1.1",
+      "node-sql-parser": "^5.4.0",
+      "pdf-parse": "^2.4.5",
+      "pem": "~1.14.8",
+      "read-excel-file": "^9.3.9",
+      "sharp": "^0.35.5"
+    },
+    "peerDependencies": {
+      "@huggingface/transformers": "*",
+      "@ibm-cloud/watsonx-ai": "*",
+      "@langfuse/client": "*",
+      "@openai/agents": "*",
+      "@openai/codex-security": "^0.2.0",
+      "@slack/web-api": "*",
+      "ibm-cloud-sdk-core": "*",
+      "playwright": "*",
+      "playwright-extra": "*",
+      "puppeteer-extra-plugin-stealth": "*"
+    },
+    "peerDependenciesMeta": {
+      "@huggingface/transformers": {
+        "optional": true
+      },
+      "@ibm-cloud/watsonx-ai": {
+        "optional": true
+      },
+      "@langfuse/client": {
+        "optional": true
+      },
+      "@openai/agents": {
+        "optional": true
+      },
+      "@openai/codex-security": {
+        "optional": true
+      },
+      "@slack/web-api": {
+        "optional": true
+      },
+      "ibm-cloud-sdk-core": {
+        "optional": true
+      },
+      "playwright": {
+        "optional": true
+      },
+      "playwright-extra": {
+        "optional": true
+      },
+      "puppeteer-extra-plugin-stealth": {
+        "optional": true
+      }
+    }
+  },
+  "lock_sha256": "ed3394c1a40c9e721d1ffc43b5457e564f1d51c97963040f63ceb7d5beea4dad",
+  "installation_root": "E:\\Guardrails-Local\\work\\promptfoo-runtime",
+  "global_installation": false,
+  "python_packages_installed": false,
+  "lifecycle_scripts_executed": false,
+  "optional_dependencies_omitted": true,
+  "windows_native_explicit": "@libsql/win32-x64-msvc@0.5.29",
+  "skipped_script_packages": [
+    "node_modules/esbuild",
+    "node_modules/fsevents"
+  ],
+  "tls": "Process-local Node --use-system-ca; verification enabled",
+  "official_sources": [
+    "https://www.promptfoo.dev/docs/installation/",
+    "https://www.promptfoo.dev/docs/providers/python/",
+    "https://www.promptfoo.dev/docs/usage/command-line/"
+  ],
+  "verified_cli_run": {
+    "status": "PASS",
+    "framework": "promptfoo",
+    "version": "0.124.1",
+    "synthetic_fixtures": true,
+    "live_model_quality_verified": false,
+    "model_called": false,
+    "global_installation": false,
+    "exit_code": 0,
+    "log_path": "E:\\Guardrails-Local\\work\\promptfoo-runtime\\eval-d9d635e1f1b6407691feaea474fadfd3.txt",
+    "result_path": "E:\\Guardrails-Local\\work\\promptfoo-runtime\\runs\\31fda0d956bc4c3aa0a8dada0641c0d6.json",
+    "lock_sha256": "ed3394c1a40c9e721d1ffc43b5457e564f1d51c97963040f63ceb7d5beea4dad",
+    "passed": 8,
+    "failed": 0,
+    "errors": 0,
+    "checked_at": "2026-10-18T00:59:06.438182+00:00",
+    "scope": "Echte Promptfoo-CLI und Produktpipeline mit explizit synthetischen semantischen Testurteilen."
+  },
+  "scope": "Eight offline control-flow regressions over real QualityPipeline with synthetic evaluator/corrector judgments; no live model or hook acceptance",
+  "source_binding": {
+    "before": {
+      "src/guardrails_local/quality_pipeline.py": "508b4a618fa872bb2bc0de3915886bafaf9fa1aaf4ebbf04f99eaa7465b11e85",
+      "src/guardrails_local/action_evidence.py": "d7522565858b441f8816e3d6ae19477cfe7c65e86cc15a6e128a8b99faa012ec",
+      "src/guardrails_local/conversation_profiles.py": "1466d7e65cb7d579dfbfa25ed11a23176ec25f46d0e74221ee7fd4c3a6b924b3",
+      "src/guardrails_local/promptfoo_runner.py": "42590bd321a17b340602f1326298835b0c69c05f7a5523006dc071b9f2e11c37",
+      "regressions/promptfoo/provider.py": "b44366cbce6eeb7c84417e66763127322ff59b1c54bd60881ca5970672372d97",
+      "regressions/promptfoo/cases.json": "ed62786f13a45427494270a2fcd730ff40b80d8daaede960cb093486d1825e81",
+      "regressions/promptfoo/config.json": "e49cd84b3099a3fe229d225d814d3439c676e4b7475ba9fe5551846fb090d813",
+      "regressions/promptfoo/offline.cjs": "7c02c0c3a7941606ce82a7f3815e367bb54a0dddcbeb0a956f5c4576b1af1fee"
+    },
+    "after": {
+      "src/guardrails_local/quality_pipeline.py": "508b4a618fa872bb2bc0de3915886bafaf9fa1aaf4ebbf04f99eaa7465b11e85",
+      "src/guardrails_local/action_evidence.py": "d7522565858b441f8816e3d6ae19477cfe7c65e86cc15a6e128a8b99faa012ec",
+      "src/guardrails_local/conversation_profiles.py": "1466d7e65cb7d579dfbfa25ed11a23176ec25f46d0e74221ee7fd4c3a6b924b3",
+      "src/guardrails_local/promptfoo_runner.py": "42590bd321a17b340602f1326298835b0c69c05f7a5523006dc071b9f2e11c37",
+      "regressions/promptfoo/provider.py": "b44366cbce6eeb7c84417e66763127322ff59b1c54bd60881ca5970672372d97",
+      "regressions/promptfoo/cases.json": "ed62786f13a45427494270a2fcd730ff40b80d8daaede960cb093486d1825e81",
+      "regressions/promptfoo/config.json": "e49cd84b3099a3fe229d225d814d3439c676e4b7475ba9fe5551846fb090d813",
+      "regressions/promptfoo/offline.cjs": "7c02c0c3a7941606ce82a7f3815e367bb54a0dddcbeb0a956f5c4576b1af1fee"
+    },
+    "unchanged": true,
+    "cli_exit_code": 0
+  }
+}

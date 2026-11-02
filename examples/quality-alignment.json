@@ -1,0 +1,16 @@
+{
+  "task": "Erkläre kurz, was eine unbelegte Behauptung ist.",
+  "answer": "Eine unbelegte Behauptung ist eine Aussage, für die kein überprüfbarer Nachweis vorliegt.",
+  "instructions": [
+    "Antworte auf Deutsch.",
+    "Antworte mit genau einem Satz.",
+    "Behaupte keine durchgeführte Recherche."
+  ],
+  "criteria": [
+    "Die Erklärung ist verständlich und beantwortet die Aufgabe."
+  ],
+  "constraints": {
+    "max_chars": 200
+  },
+  "metric": "prompt_alignment"
+}

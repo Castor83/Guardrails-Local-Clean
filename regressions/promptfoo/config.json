@@ -1,0 +1,26 @@
+{
+  "description": "Real local QualityPipeline regressions with explicitly synthetic evaluator fixtures; no models",
+  "prompts": ["{{case_id}}"],
+  "providers": [{"id": "file://provider.py", "label": "real-quality-pipeline-synthetic-evaluator"}],
+  "sharing": false,
+  "tracing": {"enabled": false},
+  "evaluateOptions": {"maxConcurrency": 1, "cache": false},
+  "defaultTest": {
+    "assert": [
+      {"type":"is-json"},
+      {"type":"javascript","value":"const x=JSON.parse(output);\nreturn x.case_id===context.vars.case_id && typeof x.case_sha256==='string' && x.case_sha256.length===64;"},
+      {"type":"javascript","value":"const x=JSON.parse(output);\nreturn x.fixture===true && x.native_metric===false && x.model_called===false && x.released_text===null && x.verified===false && x.original_contract_preserved===true && x.pipeline_framework==='guardrails_local.quality_pipeline';"},
+      {"type":"javascript","value":"const x=JSON.parse(output);\nreturn x.final_status===context.vars.expected_status;"}
+    ]
+  },
+  "tests": [
+    {"description":"Reject unbacked search claim","vars":{"case_id":"unbacked_chat_search","expected_status":"FAIL"}},
+    {"description":"Reject wrong exact title","vars":{"case_id":"wrong_chat_title","expected_status":"FAIL"}},
+    {"description":"Honest uncertainty fixture","vars":{"case_id":"honest_uncertainty","expected_status":"PASS"}},
+    {"description":"Enforce explicit length","vars":{"case_id":"explicit_length_bound","expected_status":"FAIL"}},
+    {"description":"Preserve task and criteria through correction","vars":{"case_id":"preserve_contract_on_correction","expected_status":"PASS"},"assert":[{"type":"javascript","value":"const x=JSON.parse(output);\nreturn x.evaluator_calls===2&&x.corrector_calls===1&&x.original_contract_preserved===true;"}]},
+    {"description":"ERROR never retries","vars":{"case_id":"error_has_no_retry","expected_status":"ERROR"},"assert":[{"type":"javascript","value":"const x=JSON.parse(output);\nreturn x.evaluator_calls===1&&x.corrector_calls===0&&x.attempt_count===1;"}]},
+    {"description":"UNVERIFIED never retries","vars":{"case_id":"unverified_has_no_retry","expected_status":"UNVERIFIED"},"assert":[{"type":"javascript","value":"const x=JSON.parse(output);\nreturn x.evaluator_calls===1&&x.corrector_calls===0&&x.attempt_count===1;"}]},
+    {"description":"At most two corrections","vars":{"case_id":"correction_budget","expected_status":"ESCALATED"},"assert":[{"type":"javascript","value":"const x=JSON.parse(output);\nreturn x.evaluator_calls===3&&x.corrector_calls===2&&x.attempt_count===3;"}]}
+  ]
+}

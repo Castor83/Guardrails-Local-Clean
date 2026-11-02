@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "instruction_de_pass", "criterion": "Antworte ausschließlich auf Deutsch.", "input": "Nenne die Hauptstadt Deutschlands.", "actual_output": "Die Hauptstadt Deutschlands ist Berlin.", "expected_verdict": "PASS"},
+    {"id": "instruction_de_fail", "criterion": "Antworte ausschließlich auf Deutsch.", "input": "Nenne die Hauptstadt Deutschlands.", "actual_output": "The capital of Germany is Berlin.", "expected_verdict": "FAIL"},
+    {"id": "source_pass", "criterion": "Jede Aussage muss durch den Quellenkontext gedeckt sein.", "input": "Welche Stadt ist laut Quelle die Hauptstadt?", "source_context": ["Die Hauptstadt Deutschlands ist Berlin."], "actual_output": "Berlin ist die Hauptstadt Deutschlands.", "expected_verdict": "PASS"},
+    {"id": "source_fail", "criterion": "Jede Aussage muss durch den Quellenkontext gedeckt sein.", "input": "Welche Stadt ist laut Quelle die Hauptstadt?", "source_context": ["Die Hauptstadt Deutschlands ist Berlin."], "actual_output": "Bonn ist die Hauptstadt Deutschlands.", "expected_verdict": "FAIL"}
+  ]
+}

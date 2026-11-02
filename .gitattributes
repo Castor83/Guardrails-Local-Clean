@@ -1,0 +1,3 @@
+docs/ORIGINALAUFTRAG.txt -text -diff
+examples/chatgpt-original.txt -text -diff
+graphify-out/graph.json merge=graphify

@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-10-18T01:12:57.229004+00:00",
+  "command": [
+    "C:\\Users\\REDACTED_USER\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "returncode": 0,
+  "tests": 348,
+  "test_seconds": 120.335,
+  "duration_seconds": 123.594,
+  "tree_before": "b3ff999ca96637c5ef22a8b68f6842ded276090353d5b0fecfef21693b32e0b0",
+  "tree_after": "b3ff999ca96637c5ef22a8b68f6842ded276090353d5b0fecfef21693b32e0b0",
+  "tree_unchanged": true,
+  "protected_before": {
+    "E:\\Guardrails-Local\\config\\workflow-policy.json": "9d0b6efbd31e5c8f845d2a92d817a5335ba911c000df3759bfae6c998bf249b0",
+    "E:\\Guardrails-Local\\work\\codex\\config.json": "dda871242dce76dfe60630cb1679a8dd5b3788607142d93643aa92efdfd51e4d",
+    "C:\\Users\\REDACTED_USER\\.codex\\hooks.json": "1bea621d4a36717837671e7268d97bb4e3407942f79eae21c0f1ae3963a3089c",
+    "E:\\Guardrails-Local\\UserPromptSubmit": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "E:\\Guardrails-Local\\hooks": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "E:\\Guardrails-Local\\docs\\ORIGINALAUFTRAG.txt": "efaaf16db0dee2c011185c500ddf564c7b760c4ef17682f133302677f85333c7"
+  },
+  "protected_after": {
+    "E:\\Guardrails-Local\\config\\workflow-policy.json": "9d0b6efbd31e5c8f845d2a92d817a5335ba911c000df3759bfae6c998bf249b0",
+    "E:\\Guardrails-Local\\work\\codex\\config.json": "dda871242dce76dfe60630cb1679a8dd5b3788607142d93643aa92efdfd51e4d",
+    "C:\\Users\\REDACTED_USER\\.codex\\hooks.json": "1bea621d4a36717837671e7268d97bb4e3407942f79eae21c0f1ae3963a3089c",
+    "E:\\Guardrails-Local\\UserPromptSubmit": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "E:\\Guardrails-Local\\hooks": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "E:\\Guardrails-Local\\docs\\ORIGINALAUFTRAG.txt": "efaaf16db0dee2c011185c500ddf564c7b760c4ef17682f133302677f85333c7"
+  },
+  "protected_unchanged": true,
+  "protected_match_prior_repair": true,
+  "controller_package_count": 114,
+  "controller_packages_unchanged": true,
+  "current_session_disabled": true,
+  "critic_enabled": false,
+  "log_path": "E:\\Guardrails-Local\\work\\quality-stack-20261018\\full-tests.txt",
+  "log_sha256": "1842648986dff1965f619f4160ae604032186627099ec042dd24b0ce325a0976",
+  "native_workflow_acceptance": false,
+  "model_quality_verified": false,
+  "scope": "Fresh CPU/unit-contract suite on the stable integration; separate Promptfoo and native model evidence.",
+  "status": "PASS"
+}

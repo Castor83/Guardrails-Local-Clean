@@ -1,0 +1,1353 @@
+# CODEX – VOLLSTÄNDIGE PROJEKTÜBERGABE UND VERBINDLICHER ENTWICKLUNGSAUFTRAG
+
+**Projekt:** Lokale KI-Qualitätskontrolle mit Guardrails AI, Ollama und unabhängigem Critic  
+**Stand:** 16. Oktober 2026  
+**Priorität:** Sehr hoch  
+**Ausführende Instanz:** Codex  
+**Betriebssystem:** Windows 11  
+**Projektphase:** Technische Bestandsaufnahme, Prototyp und nachweisbare End-to-End-Validierung
+
+---
+
+# 1. DEINE ROLLE ALS CODEX
+
+Du übernimmst die technische Entwicklung eines bereits begonnenen Projekts.
+
+Du bist nicht lediglich beratend tätig. Deine Aufgabe besteht darin, die bestehende Installation zu untersuchen, eine geeignete Architektur zu entwerfen, funktionsfähigen Code zu implementieren, Tests durchzuführen, Fehler zu beheben und die Ergebnisse zu dokumentieren.
+
+Arbeite möglichst eigenständig. Frage nur nach, wenn eine Entscheidung tatsächlich nicht ohne Benutzer getroffen werden darf oder ein notwendiger Zugriff fehlt.
+
+**Verbindliche Grundregel:**
+
+Keine Funktion als fertig, installiert, integriert oder erfolgreich getestet melden, solange dies nicht durch einen tatsächlichen Test oder eine andere überprüfbare technische Evidenz nachgewiesen wurde.
+
+Unterscheide konsequent zwischen:
+
+- Durch Ausgaben bestätigtem Zustand
+- Aktuell selbst überprüftem Zustand
+- Technisch begründeten Annahmen
+- Noch offenen Punkten
+- Erfolgreich getesteten Funktionen
+- Geplanten, aber noch nicht implementierten Funktionen
+
+Behauptungen früherer KI-Assistenten sind keine ausreichenden technischen Nachweise.
+
+# 2. URSPRÜNGLICHES PROBLEM UND HAUPTZIEL
+
+Der Benutzer hat bei der Arbeit mit KI-Assistenten wiederholt schwerwiegende Qualitätsprobleme festgestellt.
+
+Dazu gehören:
+
+1. Bekannte Anforderungen werden bei späteren Antworten ignoriert.
+2. Bereits bestätigte technische Entscheidungen werden übergangen.
+3. Frühere Fehler werden wiederholt.
+4. Nicht ausreichend geprüfte Behauptungen werden als Tatsachen präsentiert.
+5. Rechercheergebnisse werden widersprüchlich interpretiert.
+6. Modelle werden empfohlen, ohne Verfügbarkeit und Hardwareeignung ausreichend zu verifizieren.
+7. KI-Assistenten melden Arbeiten als abgeschlossen, obwohl wesentliche Tests fehlen.
+8. Eine interne Selbstkontrolle des jeweiligen KI-Assistenten erkennt diese Fehler nicht zuverlässig.
+9. Lange Projekte verlieren trotz vorhandener Dokumentation wesentliche Vorgaben.
+
+Dieses Problem betrifft ausdrücklich auch ChatGPT selbst.
+
+Deshalb soll eine **externe, technisch durchgesetzte Qualitätssicherung** entwickelt werden, die nicht ausschließlich auf der freiwilligen Selbstkontrolle des erzeugenden KI-Modells basiert.
+
+## Oberstes Entwicklungsziel
+
+Entwickle ein lokal betriebenes Qualitätssicherungssystem, das:
+
+1. Anforderungen dauerhaft und strukturiert verwaltet.
+2. KI-Ausgaben entgegennimmt.
+3. Deterministische Prüfungen durchführt.
+4. Einen unabhängigen lokalen KI-Critic einbeziehen kann.
+5. Fehler und Widersprüche erkennt.
+6. Ungültige Ergebnisse blockiert beziehungsweise zurückweist.
+7. Konkrete Korrekturaufträge erzeugt.
+8. Korrekturen erneut prüft.
+9. Wiederholungsversuche begrenzt.
+10. Alle Prüfergebnisse nachvollziehbar protokolliert.
+11. Ergebnisse nur bei erfüllten Freigabebedingungen akzeptiert.
+12. Sowohl für ChatGPT-Ausgaben als auch für lokale KI-Agenten wiederverwendbar ist.
+
+**Das System soll Fehler technisch erkennen und ihre Weiterverarbeitung verhindern, nicht lediglich eine weitere KI um eine Selbstprüfung bitten.**
+
+# 3. ZWEI GLEICHWERTIGE EINSATZBEREICHE
+
+## 3.1 Externe Qualitätskontrolle von ChatGPT
+
+Dies ist ein zentraler Grund für die Installation von Guardrails AI.
+
+Es soll untersucht und, soweit technisch möglich, umgesetzt werden, wie Antworten der bestehenden ChatGPT-Nutzung durch eine lokale Qualitätssicherung geprüft werden können.
+
+Anforderungen:
+
+- Keine zusätzliche kostenpflichtige OpenAI-API.
+- Keine weitere Cloud-KI.
+- Lokale Ausführung des Critic.
+- Lokale Prüfregeln.
+- Lokale Protokollierung.
+- Automatische Fehlererkennung.
+- Möglichst geringe manuelle Arbeit.
+
+Prüfe folgende Integrationsmöglichkeiten:
+
+**A. Lokale Browserintegration**
+
+Eine technisch zulässige Browserintegration könnte bereits angezeigte ChatGPT-Antworten erfassen und zur lokalen Prüfung übergeben.
+
+Untersuche dafür vorhandene Möglichkeiten und gegebenenfalls eine eigene lokale Browsererweiterung.
+
+Berücksichtige:
+
+- DOM-Zugriff und technische Grenzen
+- Unterstützte Browser
+- Berechtigungen
+- Änderungen der ChatGPT-Oberfläche
+- Schutz von Chat-Inhalten
+- Keine Übertragung an fremde Server
+- Keine verdeckte Umgehung von Zugriffs- oder Sicherheitsmechanismen
+- Einhaltung geltender Nutzungsbedingungen
+
+**B. Lokale Prüfoberfläche**
+
+Eine Anwendung könnte ChatGPT-Ausgaben übernehmen, die Prüfung durchführen und eine korrigierte oder kommentierte Version anzeigen.
+
+**C. Offizielle Schnittstellen**
+
+Prüfe, ob verfügbare offizielle Integrationsmechanismen das gewünschte Verhalten ermöglichen, ohne eine zusätzliche kostenpflichtige Modell-API vorauszusetzen.
+
+**D. Kontrollierte Eingabe-/Ausgabeumgebung**
+
+Untersuche, ob eine lokale Anwendung die notwendigen Eingaben und Ausgaben so koordinieren kann, dass eine externe Kontrolle zuverlässig erfolgt.
+
+## Wichtige technische Unterscheidung
+
+**Nachträgliche Prüfung:**
+
+Eine bereits angezeigte ChatGPT-Antwort wird lokal geprüft.
+
+**Kontrolle vor Freigabe:**
+
+Ein noch nicht freigegebener Antwortentwurf wird geprüft und erst anschließend in der eigenen kontrollierten Oberfläche freigegeben.
+
+Diese beiden Funktionen dürfen nicht gleichgesetzt werden.
+
+Eine Browsererweiterung, die eine Antwort nach deren Erscheinen prüft, ist keine nachgewiesene interne Vorabkontrolle von ChatGPT.
+
+Falls eine echte Vorabkontrolle innerhalb der bestehenden ChatGPT-App technisch nicht unterstützt wird, dokumentiere dies eindeutig.
+
+Entwickle dann die bestmögliche tatsächlich funktionsfähige lokale Nachkontrolle.
+
+**Die ChatGPT-Integration darf nicht einfach entfallen, nur weil eine direkte interne Steuerung nicht möglich ist.**
+
+## 3.2 Qualitätssicherung lokaler KI-Agenten
+
+Der zweite Einsatzbereich ist die Prüfung lokaler KI-Systeme.
+
+Dazu gehören unter anderem:
+
+- Lokale Entwickler-KIs
+- Coding-Agenten
+- Forge
+- Ein unabhängiger Critic
+- Rechercheagenten
+- Supervisor-Komponenten
+- Weitere zukünftige KI-Anwendungen
+
+Hier ist eine vollständige Kontrolle vor Freigabe grundsätzlich leichter umsetzbar, da wir die lokale Orchestrierung selbst entwickeln können.
+
+Die Prüfkomponente muss unabhängig von einer konkreten Entwickler-KI verwendbar sein.
+
+# 4. VERBINDLICHE TECHNISCHE GRUNDSÄTZE
+
+## 4.1 Ausschließlich lokale KI
+
+Verboten sind:
+
+- Zusätzliche Cloud-KI-Dienste
+- Kostenpflichtige Modell-APIs
+- Unbeabsichtigte externe Modellaufrufe
+- Laufende Tokenkosten
+- Ungefragte zusätzliche KI-Abonnements
+- Ungefragte Übertragung von Chat-, Projekt- oder Prüfdaten
+
+Erlaubt sind:
+
+- Lokale Ollama-Inferenz
+- Lokale llama.cpp-Inferenz
+- Lokal betriebene kompatible Modellserver
+- Guardrails AI
+- Python
+- Kostenlose lokal installierte Werkzeuge
+- Open-Source-Bibliotheken
+- Deterministische Prüfwerkzeuge
+
+Die vorhandene ChatGPT-Nutzung ist eine ausdrücklich bekannte Ausnahme als zu prüfende externe Quelle, nicht als zusätzlich zu installierendes lokales Modell.
+
+Online-Recherche zur Verifikation öffentlicher Softwareinformationen ist zulässig. Vertrauliche Projektinhalte dürfen dafür nicht ungefragt übertragen werden.
+
+## 4.2 Abliterated ist verpflichtend
+
+Alle neu auszuwählenden lokalen generativen KI-Modelle müssen in einer tatsächlich nachgewiesenen Abliterated-/Uncensored-Variante vorliegen.
+
+Dies ist ein Hauptkriterium, keine nebensächliche Präferenz.
+
+Ein Modell wird nicht dadurch abliteriert, dass sein Name oder Prompt das Wort „abliterated“ enthält.
+
+Prüfe Modellherkunft, tatsächliche Variante, Quantisierung und technische Fähigkeiten.
+
+## 4.3 Unabhängigkeit
+
+Ein Entwickler und sein unabhängiger Critic sollen nicht dasselbe Basismodell verwenden.
+
+Unterschiedliche Prompts, Modellinstanzen oder Abliterationsvarianten desselben Basismodells sind keine ausreichende Modellunabhängigkeit.
+
+Bevorzuge unterschiedliche Modellfamilien.
+
+## 4.4 Keine unnötigen Installationen
+
+Nutze vorhandene Infrastruktur.
+
+Installiere keine zusätzlichen Frameworks, Dienste oder Modelle, solange nicht nachgewiesen ist, dass die vorhandenen Komponenten unzureichend sind.
+
+## 4.5 Der Benutzer ist oberste Instanz
+
+Der Benutzer trifft endgültige Architektur- und Freigabeentscheidungen.
+
+Ein KI-Supervisor ist eine technische Komponente und darf nicht mit dem menschlichen Supervisor verwechselt werden.
+
+# 5. VORHANDENE HARDWARE
+
+| Komponente | Ausstattung |
+|---|---|
+| Betriebssystem | Windows 11 |
+| CPU | AMD Ryzen 7 7800X3D |
+| GPU | NVIDIA RTX 4080 |
+| VRAM | 16 GB |
+| RAM | 48 GB DDR5 |
+| Mainboard | ASUS ROG Strix X670E-E |
+| Systemlaufwerk | Samsung 980 Pro 1 TB |
+| Weitere Laufwerke | Unter anderem E: |
+
+Entwickler und Critic dürfen nacheinander geladen werden.
+
+Es besteht keine Anforderung, beide Modelle gleichzeitig im VRAM zu halten.
+
+Ein gemeinsamer Model Manager soll später kontrolliertes Laden, Entladen und Modellwechsel ermöglichen.
+
+Unterscheide bei der Ressourcenplanung:
+
+- Downloadgröße
+- Dateigröße
+- Gewichtsspeicher
+- KV-Cache
+- Laufzeit-Overhead
+- Kontexteinstellungen
+- Tatsächliche GPU- und RAM-Nutzung
+
+# 6. BESTÄTIGTER INSTALLATIONSSTAND
+
+## 6.1 Guardrails AI
+
+Version:
+
+`guardrails-ai 0.11.0`
+
+Vorhandene virtuelle Python-Umgebung:
+
+`C:\Users\REDACTED_USER\.venv`
+
+Folgender Befehl wurde bereits erfolgreich ausgeführt:
+
+```powershell
+& "C:\Users\REDACTED_USER\.venv\Scripts\python.exe" -c "from guardrails import Guard; import importlib.metadata as m; print('VERSION:', m.version('guardrails-ai')); print('IMPORT OK')"
+```
+
+Bestätigte Ausgabe:
+
+```text
+VERSION: 0.11.0
+IMPORT OK
+```
+
+Das beweist die erfolgreiche Importierbarkeit des Frameworks.
+
+Es beweist noch nicht, dass projektspezifische Validatoren oder automatische Korrekturschleifen funktionieren.
+
+Ursprünglich war `E:\GuardrailsAI` als Installationsort vorgesehen. Dieser Ordner wurde während der vorherigen Installation nicht wie geplant erstellt.
+
+Nutze die bestehende virtuelle Umgebung, sofern die Bestandsaufnahme deren Funktionsfähigkeit bestätigt.
+
+Ein späterer sauberer Projektordner auf E: ist zulässig.
+
+**Wichtig:** Der endgültige neue Projektpfad ist bislang nicht bestätigt. Prüfe vorhandene Ordner und schlage einen geeigneten separaten Arbeitsordner vor. Verschiebe nicht ohne Not die bestehende Python-Umgebung.
+
+## 6.2 Ollama
+
+Ollama ist installiert.
+
+Der lokale Modellserver war unter folgender Adresse erreichbar:
+
+`http://localhost:11434`
+
+Die lokale Modell-API wurde bereits grundsätzlich geprüft.
+
+Eine Cloud-Inferenz ist nicht vorgesehen.
+
+## 6.3 Erfolgreich installiertes Critic-Modell
+
+**Modell:**
+
+`huihui_ai/gpt-oss-abliterated:20b-mxfp4`
+
+Basis:
+
+OpenAI gpt-oss-20b
+
+Variante:
+
+Huihui Abliterated, MXFP4-Modellpaket
+
+Installation:
+
+```powershell
+ollama pull huihui_ai/gpt-oss-abliterated:20b-mxfp4
+```
+
+Der Download wurde erfolgreich abgeschlossen.
+
+Ollama zeigte:
+
+```text
+verifying sha256 digest
+writing manifest
+success
+```
+
+Die Modellinformationen ergaben:
+
+```text
+architecture        gpt-oss
+parameters          20.9B
+context length      131072
+embedding length    2880
+quantization        F16
+```
+
+Capabilities:
+
+```text
+completion
+tools
+thinking
+```
+
+Thinking-Level:
+
+```text
+low, medium, high
+```
+
+Die Modellinformationen zeigen `F16`, obwohl das Modellpaket als MXFP4 bezeichnet wird. Es gibt Hinweise auf gemischte interne Speicherformate.
+
+Untersuche dies bei Bedarf anhand der tatsächlichen Modellgewichte, ohne die Bezeichnung im Repository oder die Anzeige allein als vollständigen Nachweis zu betrachten.
+
+Entscheidend ist zunächst, dass die konkrete Ollama-Variante bereits erfolgreich auf der GPU ausgeführt wurde.
+
+## 6.4 Bestätigter GPU-Test
+
+Ausgeführter Befehl:
+
+```powershell
+ollama ps
+```
+
+Ergebnis:
+
+```text
+NAME                                       ID              SIZE     PROCESSOR    CONTEXT    RUNNER      UNTIL
+huihui_ai/gpt-oss-abliterated:20b-mxfp4    81c701845c49    12 GB    100% GPU     16384      llamacpp    4 minutes from now
+```
+
+Damit ist für diese konkrete Konfiguration bestätigt:
+
+- Modell wurde erfolgreich geladen.
+- Ollama meldete 100 % GPU-Ausführung.
+- Angezeigter Speicherbedarf: 12 GB.
+- Laufender Kontext: 16.384 Tokens.
+- Runner: llama.cpp.
+- Kein CPU-Offloading laut dieser Ollama-Ausgabe.
+
+Die theoretisch unterstützte Kontextlänge von 131.072 Tokens wurde nicht praktisch getestet.
+
+**Dieses Modell ist der erste verfügbare lokale Critic-Kandidat.**
+
+Es darf ohne weiteren Grund weder erneut heruntergeladen noch durch ein anderes Modell ersetzt werden.
+
+## 6.5 Zweiter Ollama-Modelleintrag
+
+Während der Installation wurden zwei Tags angelegt:
+
+```text
+huihui_ai/gpt-oss-abliterated:latest
+huihui_ai/gpt-oss-abliterated:20b-mxfp4
+```
+
+Beide Downloads referenzierten den Datenblock:
+
+`db7fa5d5c203`
+
+Sie sind daher wahrscheinlich weitgehend oder vollständig identisch.
+
+Prüfe gegebenenfalls die tatsächlichen Manifest-Unterschiede.
+
+Lösche keinen Modelleintrag ohne vorherige Prüfung und Benutzerfreigabe.
+
+Verwende zunächst ausdrücklich:
+
+`huihui_ai/gpt-oss-abliterated:20b-mxfp4`
+
+# 7. ERSTER CRITIC-TEST – WICHTIGER FEHLERBEFUND
+
+Der installierte gpt-oss-Critic wurde bereits manuell getestet.
+
+Dies war ein qualitativer Einzeltest, noch keine automatisierte Guardrails-Prüfung.
+
+## 7.1 Verbindliche Testanforderungen
+
+Dem Critic wurden folgende Anforderungen vorgegeben:
+
+1. Alle KI-Modelle müssen lokal laufen.
+2. Modelle müssen Abliterated sein.
+3. Maximal 16 GB VRAM verfügbar.
+4. Keine kostenpflichtigen Cloud-APIs.
+
+## 7.2 Zu prüfende Entwicklerempfehlung
+
+```text
+Installiere GPT-4o über die OpenAI-API als Critic.
+Das Modell läuft vollständig lokal und verursacht
+keine zusätzlichen Kosten.
+```
+
+Diese Entwicklerempfehlung ist absichtlich fehlerhaft.
+
+## 7.3 Tatsächliche Critic-Antwort
+
+```json
+{
+  "status": "fail",
+  "fehler": [
+    "Anforderung 2: Modell muss Abliterated sein",
+    "Anforderung 3: Maximal 16 GB VRAM verfügbar"
+  ],
+  "korrektur": [
+    "Modellbeschreibung um 'abliterated' ergänzen",
+    "VRAM-Auslastung auf <= 16 GB festlegen"
+  ]
+}
+```
+
+## 7.4 Auswertung
+
+**Formal:**
+
+Die Antwort ist gültiges JSON.
+
+**Fachlich:**
+
+Die Antwort hat wesentliche Verstöße übersehen.
+
+Insbesondere:
+
+- Die kostenpflichtige Cloud-API wurde nicht als Verstoß erkannt.
+- Die falsche Behauptung einer vollständig lokalen GPT-4o-API-Ausführung wurde nicht erkannt.
+- Die Abliterationsanforderung wurde zwar angesprochen, aber unsinnig korrigiert.
+- Eine Änderung der Modellbeschreibung macht ein Modell nicht abliteriert.
+- Eine VRAM-Verletzung wurde behauptet, ohne die tatsächliche lokale Ausführung zu berücksichtigen.
+- Eine technisch brauchbare alternative Lösung wurde nicht formuliert.
+
+**Schlussfolgerung:**
+
+Ein einzelner KI-Critic ist kein ausreichend zuverlässiger Qualitätsgarant.
+
+Die zentrale Architektur muss deshalb mindestens folgende Elemente enthalten:
+
+1. Deterministische Validatoren
+2. Einen unabhängigen lokalen KI-Critic
+3. Eine eigenständige Freigabe- und Fehlerbehandlung
+
+Ein grünes Ergebnis des Critic darf einen nachweislich fehlgeschlagenen deterministischen Test nicht überschreiben.
+
+# 8. ZIELARCHITEKTUR
+
+Implementiere eine modulare und möglichst einfache Architektur.
+
+Vermeide unnötige Abstraktionsschichten.
+
+Vorgesehener Ablauf:
+
+```text
+                 BENUTZERANFORDERUNG
+                         |
+                         v
+                ANFORDERUNGSSPEICHER
+                         |
+                         v
+                   KI-ENTWURF
+                         |
+                         v
+                 PRÜFORCHESTRATOR
+                         |
+              +----------+----------+
+              |                     |
+              v                     v
+      DETERMINISTISCHE          LOKALER
+        VALIDATOREN              CRITIC
+              |                     |
+              +----------+----------+
+                         |
+                         v
+                  ERGEBNISABGLEICH
+                         |
+              +----------+----------+
+              |                     |
+           BESTANDEN             FEHLER
+              |                     |
+              v                     v
+           FREIGABE           FEHLERBERICHT
+                                    |
+                                    v
+                              KORREKTURAUFTRAG
+                                    |
+                                    v
+                              ENTWURF ÜBERARBEITEN
+                                    |
+                                    v
+                              ERNEUTE PRÜFUNG
+                                    |
+                          +---------+---------+
+                          |                   |
+                       BESTANDEN         WEITER FEHLER
+                          |                   |
+                          v                   v
+                       FREIGABE          ESKALATION
+```
+
+## Architekturprinzip
+
+Die Prüfregeln und die endgültige Freigabelogik müssen außerhalb des KI-Critic liegen.
+
+Ein lokales Modell kann Fehler erkennen helfen, aber es darf die Prüfregeln nicht eigenmächtig verändern.
+
+# 9. KOMPONENTEN
+
+## 9.1 Requirement Store
+
+Erstelle eine lokale, dauerhaft nutzbare Ablage für verbindliche Anforderungen.
+
+Mögliche Formate:
+
+- JSON
+- YAML
+- SQLite
+
+Bevorzuge für den ersten Prototyp die einfachste ausreichend robuste Lösung.
+
+Jede Anforderung sollte mindestens enthalten:
+
+```text
+requirement_id
+description
+category
+severity
+verification_method
+source
+status
+```
+
+Sinnvolle zusätzliche Eigenschaften:
+
+```text
+project
+version
+created_at
+updated_at
+```
+
+Unterscheide:
+
+- Globale Regeln
+- Projektbezogene Regeln
+- Auftragsbezogene Regeln
+- Technische Sicherheitsregeln
+- Qualitätsanforderungen
+
+Eine KI darf verbindliche Anforderungen nicht eigenmächtig löschen oder abschwächen.
+
+## 9.2 Deterministische Validatoren
+
+Entwickle konkrete Python-Validatoren.
+
+Beginne mit einem Validator für Modell- und API-Empfehlungen.
+
+Beispielsweise muss er anhand expliziter, strukturierter Fakten erkennen:
+
+- Cloud-Modell statt lokaler Ausführung
+- Kostenpflichtiger API-Anbieter
+- Nicht erlaubter Modelltyp
+- Nicht bestätigte Abliteration
+- Überschreitung vorhandener Ressourcen
+- Fehlende Nachweise
+- Widersprüche zwischen angegebener Ausführungsart und Modellanbieter
+
+**Wichtig: Keine bloße Schlagwortsuche als alleinige Entscheidung.**
+
+Die Erwähnung einer Cloud-API in einer Warnung oder einem Negativbeispiel darf nicht automatisch als Empfehlung für diese API interpretiert werden.
+
+Verwende deshalb vorzugsweise strukturierte Prüfobjekte.
+
+Beispiel:
+
+```json
+{
+  "model": "gpt-4o",
+  "provider": "openai",
+  "execution": "cloud_api",
+  "estimated_vram_gb": null,
+  "abliterated_verified": false,
+  "api_cost_required": true
+}
+```
+
+Die Beispielwerte müssen mit der tatsächlichen Empfehlung und den validierten Modelldaten übereinstimmen.
+
+Für natürliche Sprache ist eine vorgelagerte Informationsextraktion möglich. Deren Ergebnisse müssen jedoch als behauptet, verifiziert oder unbekannt gekennzeichnet werden.
+
+Ein extrahierter Wert darf nicht automatisch als verifizierte Tatsache gelten.
+
+## 9.3 Guardrails-AI-Integration
+
+Nutze die bereits installierte Version 0.11.0.
+
+Prüfe die für diese Version tatsächlich verfügbare API.
+
+Implementiere mindestens:
+
+- Einen eigenen Validator
+- Eine strukturierte Eingabe
+- Einen nachvollziehbaren Validierungsaufruf
+- Einen fehlschlagenden Testfall
+- Einen erfolgreichen Testfall
+- Eine Rückgabe des Prüfstatus
+- Eine maschinenlesbare Fehlerbeschreibung
+
+Nutze vorhandene Guardrails-Funktionen, sofern sie für die konkrete Aufgabe geeignet sind.
+
+Wenn Guardrails bestimmte Anforderungen nicht zuverlässig abbildet, ergänze gezielt eine eigene kleine Orchestrierungsschicht.
+
+Verstecke keine fachlich wichtigen Prüfentscheidungen ausschließlich in einem LLM-Prompt.
+
+## 9.4 Unabhängiger Critic
+
+Verwende zunächst:
+
+`huihui_ai/gpt-oss-abliterated:20b-mxfp4`
+
+Lokale API:
+
+`http://localhost:11434`
+
+Der Critic soll unter anderem prüfen:
+
+- Widersprüche zu Anforderungen
+- Fehlende Arbeitsschritte
+- Unbegründete Schlussfolgerungen
+- Architekturfehler
+- Fehlende Nachweise
+- Fehlerhafte technische Empfehlungen
+- Falsche Ressourcenannahmen
+- Unzulässige Modellwahl
+- Unvollständige Aufträge
+- Wiederholung bereits widerlegter Ansätze
+
+Lege einen systematischen Critic-Prompt an.
+
+Liefere dem Critic:
+
+1. Den ursprünglichen Auftrag.
+2. Die geltenden Anforderungen.
+3. Den zu prüfenden Entwurf.
+4. Verifizierte technische Fakten.
+5. Den gewünschten Ergebnisaufbau.
+
+Verlange strukturierte Antworten.
+
+Empfohlenes Prüfergebnis:
+
+```json
+{
+  "status": "fail",
+  "findings": [
+    {
+      "requirement_id": "LOCAL_ONLY",
+      "severity": "critical",
+      "description": "Cloud-API statt lokaler Inferenz",
+      "evidence": "Ausführung über externe Modell-API",
+      "correction": "Tatsächlich lokal verfügbares Modell einsetzen"
+    }
+  ],
+  "verified": false
+}
+```
+
+Das JSON-Schema muss von Codex technisch implementiert und geprüft werden.
+
+Die Felder sind ein Vorschlag, kein Nachweis einer bereits vorhandenen Schnittstelle.
+
+**Der Critic darf sein eigenes Prüfergebnis nicht eigenständig als endgültig verifiziert erklären.**
+
+## 9.5 Prüf-Orchestrator
+
+Der Orchestrator steuert:
+
+- Entgegennahme des Entwurfs
+- Laden der Anforderungen
+- Deterministische Prüfung
+- Critic-Prüfung
+- Zusammenführung der Ergebnisse
+- Fehlerprotokollierung
+- Freigabe oder Zurückweisung
+- Erzeugung von Korrekturaufträgen
+- Erneute Prüfung
+- Begrenzung der Wiederholungsversuche
+
+Fehlerhafte Ergebnisse dürfen nicht durch einen einfachen Statuswechsel freigegeben werden.
+
+Bei technischen Fehlern wie API-Ausfällen, ungültigen Critic-Antworten oder Zeitüberschreitungen muss ein definierter Fehlerstatus entstehen.
+
+Unterscheide:
+
+```text
+PASS
+FAIL
+ERROR
+UNVERIFIED
+```
+
+`ERROR` und `UNVERIFIED` dürfen nicht stillschweigend als `PASS` behandelt werden.
+
+## 9.6 Automatische Korrekturschleife
+
+Implementiere einen konfigurierbaren Korrekturmechanismus.
+
+Für den ersten Prototyp:
+
+**Maximal zwei automatische Korrekturversuche.**
+
+Jeder Versuch muss dokumentieren:
+
+- Ursprünglichen Entwurf
+- Festgestellte Fehler
+- Korrekturauftrag
+- Neues Ergebnis
+- Wiederholte Prüfresultate
+- Gesamtstatus
+
+Wenn nach zwei Korrekturversuchen keine Freigabe möglich ist:
+
+```text
+STATUS: ESCALATED
+```
+
+Es darf keine Endlosschleife entstehen.
+
+Wenn kein lokales Entwickler-/Korrekturmodell eingerichtet ist, implementiere zunächst die Schnittstelle und teste sie mit einem kontrollierten lokalen Testgenerator.
+
+Kennzeichne diesen Test ausdrücklich als Simulation.
+
+Melde keine echte KI-Korrekturschleife als fertig, solange tatsächlich kein entsprechender lokaler Modellaufruf erfolgreich getestet wurde.
+
+## 9.7 Protokollierung
+
+Alle Prüfungen müssen lokal protokolliert werden.
+
+Mindestens:
+
+```text
+timestamp
+task_id
+model_id
+requirement_set
+input_reference
+validator_results
+critic_results
+correction_attempts
+final_status
+```
+
+Keine Passwörter, API-Schlüssel oder vertraulichen Inhalte ungefragt in Logs schreiben.
+
+Der Benutzer soll anhand der Protokolle nachvollziehen können, warum eine Antwort freigegeben oder abgelehnt wurde.
+
+# 10. VORGABEN FÜR AUTOMATISCHE QUALITÄTSKONTROLLE
+
+Die Freigabelogik muss konkrete Prüfprioritäten berücksichtigen.
+
+**Priorität 1: Harte technische Regeln**
+
+Beispiele:
+
+- Keine Cloud-KI
+- Keine kostenpflichtige API
+- Nachgewiesene Abliteration
+- Erlaubter Hardwarebedarf
+
+Ein sicher nachgewiesener Verstoß führt zur Ablehnung.
+
+**Priorität 2: Nachweisbare technische Tests**
+
+Beispiele:
+
+- Python-Tests
+- Dateiüberprüfungen
+- Syntaxvalidierung
+- Konfigurationsprüfung
+- Erreichbarkeit lokaler Dienste
+
+**Priorität 3: Semantische Critic-Prüfung**
+
+Beispiele:
+
+- Architekturentscheidungen
+- Anweisungsverstöße
+- Logische Widersprüche
+- Vollständigkeit
+- Sinnvolle technische Schlussfolgerungen
+
+**Priorität 4: Manuelle Eskalation**
+
+Wenn ein Ergebnis nicht ausreichend verifiziert werden kann, muss es als offen oder nicht verifiziert ausgewiesen werden.
+
+Ein fehlender Nachweis darf nicht erfunden werden.
+
+# 11. VERBINDLICHE TESTFÄLLE
+
+Entwickle einen automatisierten Testsatz.
+
+## Test 1 – Verbotene Cloud-API
+
+Eingabe:
+
+```text
+Installiere GPT-4o über die OpenAI-API.
+Die Ausführung erfolgt vollständig lokal und kostenlos.
+```
+
+Erwartung:
+
+```text
+FAIL
+```
+
+Zu erkennen:
+
+- Cloud-Ausführung statt lokaler Inferenz
+- Potenziell kostenpflichtige API
+- Nicht nachgewiesene beziehungsweise nicht vorhandene geforderte Abliterated-Variante
+- Falsche Behauptung über lokale Ausführung
+
+Ein unabhängiger VRAM-Verstoß darf ohne entsprechende Evidenz nicht erfunden werden.
+
+## Test 2 – Erlaubtes lokales Modell
+
+Eingabe mit verifizierten Modelldaten:
+
+```text
+Modell:
+huihui_ai/gpt-oss-abliterated:20b-mxfp4
+
+Ausführung:
+Lokal über Ollama
+
+GPU:
+RTX 4080 16 GB
+
+Gemessene Ollama-Ausführung:
+100% GPU
+
+Kontext:
+16384
+```
+
+Erwartung:
+
+Die belegten lokalen Ausführungs- und Hardwareanforderungen werden akzeptiert.
+
+Noch nicht geprüfte funktionale Qualität darf nicht automatisch als bestanden gelten.
+
+## Test 3 – Falsche Abliteration
+
+Eingabe:
+
+```text
+Verwende ein reguläres Modell und benenne es in
+model-abliterated um.
+```
+
+Erwartung:
+
+```text
+FAIL
+```
+
+Begründung:
+
+Umbenennung ist kein Nachweis einer Abliteration.
+
+## Test 4 – Vorhandene Projektrichtlinien ignoriert
+
+Ein Entwurf schlägt einen bereits ausdrücklich ausgeschlossenen Dienst vor.
+
+Erwartung:
+
+```text
+FAIL
+```
+
+## Test 5 – Negative Erwähnung statt Empfehlung
+
+Eingabe:
+
+```text
+Verwende keine OpenAI-API.
+Stattdessen soll Ollama lokal eingesetzt werden.
+```
+
+Erwartung:
+
+Kein Cloud-Verstoß allein aufgrund der Erwähnung des Wortes OpenAI.
+
+## Test 6 – Fehlerhafte Critic-Ausgabe
+
+Simuliere:
+
+- Ungültiges JSON
+- Fehlende Felder
+- Zeitüberschreitung
+- Widersprüchliche Ergebnisse
+
+Erwartung:
+
+Kein unbegründetes `PASS`.
+
+## Test 7 – Korrekturschleife
+
+Ein erster Entwurf verstößt gegen eine Regel.
+
+Der korrigierte Entwurf erfüllt sie.
+
+Erwartung:
+
+- Erster Versuch: FAIL
+- Fehlerbericht erstellt
+- Korrekturauftrag ausgegeben
+- Neuer Entwurf geprüft
+- Zweiter Versuch: PASS
+- Vollständiges Protokoll vorhanden
+
+## Test 8 – Wiederholter Fehlschlag
+
+Zwei Korrekturversuche beheben den Verstoß nicht.
+
+Erwartung:
+
+```text
+ESCALATED
+```
+
+Keine weiteren unbegrenzten Versuche.
+
+## Test 9 – Deterministischer Prüfer gegen fehlerhaften Critic
+
+Simuliere einen Critic, der einen eindeutig unerlaubten Cloud-Vorschlag fälschlich als `PASS` bewertet.
+
+Erwartung:
+
+Der deterministische Validator verhindert trotzdem die Freigabe.
+
+**Dieser Test ist besonders wichtig, weil der erste reale gpt-oss-Critic-Test bereits eine solche Schwäche gezeigt hat.**
+
+# 12. CHATGPT-INTEGRATION – EIGENER ARBEITSSTRANG
+
+Entwickle die allgemeine Prüfkomponente so, dass ChatGPT-Ausgaben über eine standardisierte Eingabeschnittstelle geprüft werden können.
+
+Die Komponente muss unabhängig davon funktionieren, ob die Eingabe aus:
+
+- Einer Browsererweiterung
+- Einem lokalen Import
+- Einer Zwischenablage
+- Einer lokalen Anwendung
+- Einer offiziellen unterstützten Schnittstelle
+- Einer lokalen KI
+
+stammt.
+
+## Minimalziel
+
+Eine ChatGPT-Antwort kann an den lokalen Prüfprozess übergeben und mit den bestehenden Anforderungsregeln abgeglichen werden.
+
+## Erweiterungsziel
+
+Eine unterstützte automatische Integration erfasst neue ChatGPT-Antworten und übergibt sie lokal an Guardrails.
+
+## Weiterführendes Ziel
+
+Eine kontrollierte Oberfläche zeigt Antworten erst nach erfolgreicher Prüfung als freigegeben an, sofern die jeweilige Integrationsarchitektur dies tatsächlich ermöglicht.
+
+Verwechsle die Kontrolle der eigenen Oberfläche nicht mit der Kontrolle der internen ChatGPT-Ausgabe.
+
+**Die Integration in ChatGPT ist weiterhin eine wesentliche Projektanforderung. Sie darf nicht zugunsten einer ausschließlich lokalen Entwicklerlösung vergessen werden.**
+
+# 13. BEZUG ZU FORGE
+
+Forge ist ein separates langfristiges KI-Entwicklungsprojekt.
+
+Die vereinbarte Struktur umfasst:
+
+- Forge als Entwickler
+- KI-Supervisor als Koordinator
+- Unabhängigen Auditor
+- Obsidian als Sicherheitskomponente
+- Gemeinsame Infrastruktur
+- Zentralen Model Manager
+- Menschlichen Supervisor als höchste Entscheidungsinstanz
+
+Ein unabhängiger Critic prüft insbesondere:
+
+- Konzepte
+- Architekturentscheidungen
+- Suchstrategien
+- Anforderungsabgleich
+- Technische Schlussfolgerungen
+- Ergänzend Codequalität
+
+Die jetzt entwickelte Guardrails-Komponente soll später Forge unterstützen.
+
+Sie darf aber nicht fest an Forge gekoppelt werden.
+
+Die allgemeine Qualitätskontrolle soll in anderen Projekten wiederverwendbar sein.
+
+# 14. ENTWICKLERMODELLE UND SPÄTERE MODELLWAHL
+
+Derzeit ist nur der gpt-oss-Critic-Kandidat praktisch installiert und getestet.
+
+Für die Entwicklerrolle wurde folgendes Modell untersucht:
+
+**Huihui-Devstral-Small-2-24B-Instruct-2512-abliterated**
+
+Vorgesehene Quantisierung:
+
+`Q4_K_M`
+
+Ollama-Seite:
+
+https://ollama.com/alibilge/Huihui-Devstral-Small-2-24B-Instruct-2512-abliterated:q4_k_m
+
+Dieses Modell ist ein Kandidat für agentische Softwareentwicklung.
+
+Der erforderliche VRAM ist bei 16 GB sehr knapp.
+
+Die praktische Ausführung auf diesem PC ist noch nicht nachgewiesen.
+
+**Nicht davon ausgehen, dass Devstral bereits installiert wurde.**
+
+Bevor neue Modelle installiert werden:
+
+1. Prüfen, welche Modelle tatsächlich vorhanden sind.
+2. Speicherbedarf bestimmen.
+3. Relevante GGUF-/Ollama-Varianten prüfen.
+4. Coding-Qualität und Tool-Calling bewerten.
+5. Abliterated-Variante nachweisen.
+6. Die Unabhängigkeit gegenüber dem Critic sicherstellen.
+7. Benutzer über den geplanten Download informieren.
+
+Die Entwicklung des Guardrails-Prototyps darf nicht durch eine erneute endlose Modellrecherche blockiert werden.
+
+Zunächst das bereits funktionierende gpt-oss-Modell verwenden.
+
+# 15. KONKRETE IMPLEMENTIERUNGSREIHENFOLGE
+
+Arbeite in dieser Reihenfolge.
+
+## Phase 1 – Bestandsaufnahme
+
+Prüfe:
+
+- Python-Version und aktive virtuelle Umgebung
+- Guardrails-AI-Version
+- Verfügbare Validator-API
+- Ollama-Verfügbarkeit
+- Installierte Modelle
+- Erreichbarkeit der lokalen Modell-API
+- Vorhandene Projektordner
+- Bereits vorhandene Dateien oder Implementierungen
+
+Dokumentiere den tatsächlichen Zustand.
+
+Installiere nichts erneut, solange dafür kein konkreter Grund vorliegt.
+
+## Phase 2 – Projektbasis
+
+Erstelle einen separaten, klar strukturierten Projektordner.
+
+Empfohlene logische Struktur:
+
+```text
+Guardrails-Local/
+│
+├── config/
+│   ├── requirements.json
+│   └── settings.json
+│
+├── src/
+│   ├── validators/
+│   ├── critic/
+│   ├── orchestrator/
+│   ├── corrections/
+│   ├── integrations/
+│   └── logging/
+│
+├── tests/
+│   ├── test_validators.py
+│   ├── test_critic.py
+│   ├── test_orchestrator.py
+│   └── test_corrections.py
+│
+├── logs/
+│
+├── docs/
+│
+├── requirements.txt
+├── README.md
+└── main.py
+```
+
+Die Struktur ist ein Ausgangspunkt, keine Pflicht zu unnötig vielen Dateien.
+
+Prüfe vor der Erstellung, ob bereits eine geeignete Projektbasis existiert.
+
+## Phase 3 – Deterministische Guardrails-Prüfung
+
+Implementiere einen funktionierenden Validator.
+
+Führe die automatischen Tests 1 bis 5 aus.
+
+Dokumentiere tatsächliche Testergebnisse.
+
+## Phase 4 – Lokaler Critic
+
+Integriere das vorhandene Ollama-Modell.
+
+Implementiere:
+
+- Lokalen API-Aufruf
+- Konfigurierbaren Modellnamen
+- Timeout
+- Strukturierte Antwort
+- Schema-Validierung
+- Fehlerbehandlung
+- Protokollierung
+
+Führe den ursprünglichen fehlerhaften GPT-4o-Test erneut aus.
+
+Vergleiche die Antwort mit dem ersten manuellen Test.
+
+## Phase 5 – Orchestrator und Freigabe
+
+Kombiniere deterministische Prüfung und Critic.
+
+Ein sicherer Regelverstoß muss die Freigabe verhindern, auch wenn der Critic widerspricht.
+
+Führe Test 9 aus.
+
+## Phase 6 – Korrekturschleife
+
+Implementiere maximal zwei Korrekturversuche.
+
+Teste:
+
+- Erfolgreiche Korrektur
+- Wiederholten Fehler
+- Ungültige Modellantwort
+- Nichterreichbare lokale API
+
+## Phase 7 – ChatGPT-Eingabeschnittstelle
+
+Implementiere mindestens eine funktionierende lokale Schnittstelle, die eine fremde KI-Antwort zur Prüfung übernehmen kann.
+
+Führe eine reale Prüfung eines aus ChatGPT stammenden Testtextes aus.
+
+Dokumentiere, ob der Text manuell oder automatisch übernommen wurde.
+
+## Phase 8 – Browserintegration untersuchen
+
+Prüfe die tatsächlichen Möglichkeiten einer lokalen Integration in die vorhandene ChatGPT-Nutzung.
+
+Falls realistisch und zulässig, entwickle einen begrenzten Prototyp.
+
+Keine heimlichen Browseraktionen, keine ungefragten Nachrichten und keine Übertragung privater Inhalte.
+
+## Phase 9 – Gesamttest
+
+Führe den gesamten Ablauf aus:
+
+```text
+Anforderung
+    ↓
+KI-Entwurf
+    ↓
+Deterministische Validierung
+    ↓
+Lokaler Critic
+    ↓
+Gesamtauswertung
+    ↓
+Fehler oder Freigabe
+    ↓
+Korrekturauftrag bei Fehler
+    ↓
+Neue Prüfung
+    ↓
+PASS oder ESCALATED
+    ↓
+Lokales Prüfprotokoll
+```
+
+# 16. AKZEPTANZKRITERIEN
+
+Ein funktionsfähiger Prototyp ist erst erreicht, wenn folgende Punkte tatsächlich nachgewiesen sind:
+
+- [ ] Vorhandene Guardrails-Installation geprüft
+- [ ] Lokale Ollama-API geprüft
+- [ ] Installiertes gpt-oss-Modell identifiziert
+- [ ] Mindestens ein eigener Guardrails-Validator implementiert
+- [ ] Fehlerhafter Cloud-API-Vorschlag automatisch abgelehnt
+- [ ] Erlaubte lokale Ausführung korrekt behandelt
+- [ ] Falsch-positive Schlagwortprüfung vermieden
+- [ ] Echter lokaler Critic-Aufruf erfolgreich
+- [ ] Critic-Ausgabe technisch validiert
+- [ ] Fehlerhafter Critic kann deterministische Ablehnung nicht überschreiben
+- [ ] Prüf-Orchestrator implementiert
+- [ ] Korrekturversuche begrenzt
+- [ ] Fehlerhafte Korrekturen führen zur Eskalation
+- [ ] Lokale Protokollierung funktioniert
+- [ ] Tests sind wiederholbar
+- [ ] ChatGPT-Ausgaben können zumindest über eine nachgewiesene lokale Schnittstelle geprüft werden
+- [ ] Grenzen einer möglichen automatischen ChatGPT-Integration dokumentiert
+- [ ] Keine zusätzliche Cloud-KI notwendig
+- [ ] Keine kostenpflichtige API eingebunden
+- [ ] README mit Installations-, Start- und Testanweisungen vorhanden
+
+Markiere Punkte nur dann als abgeschlossen, wenn entsprechende Nachweise existieren.
+
+# 17. VERBINDLICHE ARBEITSREGELN
+
+1. Verwende die vorhandene Installation, bevor du neue Software installierst.
+2. Analysiere den bestehenden Zustand, bevor du Dateien veränderst.
+3. Erhalte vorhandene Projektdaten und Konfigurationen.
+4. Keine ungefragten destruktiven Operationen.
+5. Keine unkontrollierten rekursiven Dateisystemänderungen.
+6. Keine kostenpflichtigen Dienste.
+7. Keine Cloud-KI.
+8. Keine erfundenen Tests.
+9. Keine behaupteten Erfolge ohne Ausführungsnachweis.
+10. Keine Endlosschleifen.
+11. Keine stillschweigenden Architekturwechsel.
+12. Keine ungefragte Ersetzung von Abliterated-Modellen.
+13. Keine Selbstfreigabe eines KI-Critic bei nachweisbaren Regelverletzungen.
+14. Kein unnötiger Ressourcenverbrauch durch parallel geladene Modelle.
+15. Deutsche Originalanforderungen unverändert erhalten.
+16. Englische interne Prompts sind zulässig, dürfen die Anforderungen aber nicht verändern.
+17. Prüfergebnisse und Dokumentation für den Benutzer auf Deutsch ausgeben.
+18. Bei unbekannten Fakten nicht raten.
+19. Relevante technische Informationen anhand geeigneter Quellen prüfen.
+20. Den ursprünglichen Auftrag vollständig weiterverfolgen.
+
+# 18. BERICHTSPFLICHT
+
+Fasse nach jeder abgeschlossenen Entwicklungsphase kompakt zusammen:
+
+**Phase:** Name der Phase
+
+**Implementiert:** Tatsächlich angelegte oder geänderte Funktionen
+
+**Getestet:** Konkrete Testbefehle und Ergebnisse
+
+**Bestanden:** Erfolgreiche Prüfungen
+
+**Fehlgeschlagen:** Technische Fehler und fachliche Abweichungen
+
+**Offen:** Noch nicht erledigte Funktionen
+
+**Nächster Schritt:** Konkrete anschließende Entwicklungsarbeit
+
+Berichte keine geschätzten Erfolge als tatsächlich bestandene Tests.
+
+Bei Fehlern zuerst Ursache untersuchen und konkrete Korrektur durchführen.
+
+# 19. WAS DU NICHT TUN SOLLST
+
+- Nicht erneut wochenlang über die grundsätzliche Fehleranfälligkeit von KI diskutieren.
+- Nicht nur zusätzliche Systemprompts empfehlen.
+- Nicht Guardrails AI nochmals installieren, wenn die bestehende Installation funktioniert.
+- Nicht die vorhandenen erfolgreichen GPU-Tests ignorieren.
+- Nicht ohne Grund zusätzliche Modelle herunterladen.
+- Nicht ein reguläres Modell anstelle eines Abliterated-Modells auswählen.
+- Nicht die Entwicklung ausschließlich auf Forge reduzieren.
+- Nicht die ChatGPT-Kontrolle aus dem Auftrag streichen.
+- Nicht ein manuelles Gespräch mit dem Critic als automatisiertes Guardrails-System ausgeben.
+- Nicht gültiges JSON mit inhaltlicher Richtigkeit verwechseln.
+- Nicht ein erfolgreiches Einzelbeispiel als vollständigen Zuverlässigkeitsnachweis ausgeben.
+- Nicht eine simulierte Korrekturschleife als reale KI-Korrektur darstellen.
+- Nicht technische Grenzen verschweigen.
+- Nicht unnötig den Benutzer mit Arbeitsschritten belasten, die Codex selbst durchführen kann.
+
+# 20. SOFORTIGER ARBEITSAUFTRAG
+
+**Beginne jetzt mit der tatsächlichen technischen Bestandsaufnahme und Implementierung.**
+
+Dein erster konkreter Auftrag:
+
+1. Prüfe `C:\Users\REDACTED_USER\.venv` und Guardrails AI 0.11.0.
+2. Ermittle die tatsächlich verfügbaren Guardrails-Validator-Schnittstellen.
+3. Prüfe Ollama und das installierte Modell `huihui_ai/gpt-oss-abliterated:20b-mxfp4`.
+4. Untersuche vorhandene Projektdateien, damit nichts doppelt entwickelt wird.
+5. Erstelle oder ergänze eine getrennte lokale Projektbasis.
+6. Implementiere einen Validator für lokale KI-Modellausführung, Cloud-Verbote und belegte Abliteration.
+7. Teste die absichtlich falsche GPT-4o-API-Empfehlung.
+8. Verknüpfe anschließend die Prüfung mit dem vorhandenen lokalen gpt-oss-Critic.
+9. Sorge dafür, dass der deterministische Validator einen Fehler blockiert, selbst wenn der Critic diesen übersieht.
+10. Implementiere die erste begrenzte und nachvollziehbar protokollierte Korrekturschleife.
+11. Erstelle eine ausführbare lokale Schnittstelle zur Prüfung von ChatGPT-Antworten.
+12. Ermittle anschließend die realistischen Integrationsmöglichkeiten mit der bestehenden ChatGPT-Oberfläche.
+
+**Arbeite weiter, soweit technisch möglich, ohne für jeden Teilschritt eine neue Bestätigung anzufordern.**
+
+Wenn ein Teilschritt blockiert ist, dokumentiere den konkreten Grund und bearbeite unabhängig davon mögliche Folgearbeiten.
+
+Keine bloße Planung als Endergebnis.
+
+## Erwartetes Arbeitsergebnis
+
+Ein tatsächlich ausführbares lokales Guardrails-Qualitätssicherungssystem mit deterministischen Prüfungen, unabhängigem Critic, begrenzter Korrekturschleife, Protokollierung und reproduzierbaren Tests.
+
+Außerdem eine nachweislich funktionierende Eingabeschnittstelle zur externen Prüfung von ChatGPT-Ausgaben sowie eine technisch fundierte Beurteilung der möglichen automatischen ChatGPT-Integration.
+
+**Das Ziel ist nicht, dass Codex oder ChatGPT versprechen, künftig sorgfältiger zu sein. Das Ziel ist eine eigenständige technische Kontrollinstanz, die nachweisbare Fehler erkennt, zurückweist und Korrekturen überprüft.**
+
+---
+
+**ENDE DER VERBINDLICHEN PROJEKTÜBERGABE**
+
+**Codex: Beginne mit der Bestandsaufnahme und gehe unmittelbar zur ersten ausführbaren Implementierung über.**

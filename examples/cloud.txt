@@ -1,0 +1,1 @@
+Installiere GPT-4o über die OpenAI-API. Die Ausführung erfolgt vollständig lokal und kostenlos.

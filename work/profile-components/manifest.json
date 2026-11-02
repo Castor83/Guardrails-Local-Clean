@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "components": [
+    {
+      "key": "valid_length",
+      "distribution": "guardrails-ai-valid-length",
+      "version": "0.1.0",
+      "class_name": "ValidLength",
+      "native_validator": "guardrails/valid_length",
+      "size_bytes": 4030,
+      "wheel_sha256": "5e9a92a0dba699e50213bc4bc670ae2a4f0ee6b5ce2ab92ef649f33db63094df",
+      "main_sha256": "83719c0430c0796b30c81d862a0c2f7535f572afce07669d6a5fb4088bb269c4",
+      "url": "https://files.pythonhosted.org/packages/95/e4/16356c06ee0ce81cc980cee4e492cb2aa6f2df0eaca6b82b8d2caa2166e6/guardrails_ai_valid_length-0.1.0-py3-none-any.whl"
+    },
+    {
+      "key": "valid_url",
+      "distribution": "guardrails-ai-valid-url",
+      "version": "0.1.0",
+      "class_name": "ValidURL",
+      "native_validator": "guardrails/valid_url",
+      "size_bytes": 3473,
+      "wheel_sha256": "649f499cbbc969f10ffbc74ef2a7a39bc80f0084d92476d9f897aff452421d7e",
+      "main_sha256": "116d73087934c6527bf9724d271b43a403282dbeda483231303bd0b05fa42554",
+      "url": "https://files.pythonhosted.org/packages/11/23/c68621d8bf972dd7d94a8f24e00bb1569d1c76f4574afc2470cf0fa03280/guardrails_ai_valid_url-0.1.0-py3-none-any.whl"
+    }
+  ],
+  "controller_packages": {
+    "guardrails-ai": "0.11.0",
+    "rstr": "3.2.2",
+    "pydantic": "2.14.1"
+  },
+  "package_installed": false,
+  "postinstall_executed": false,
+  "model_downloaded": false
+}

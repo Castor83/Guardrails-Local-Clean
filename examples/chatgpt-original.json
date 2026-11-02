@@ -1,0 +1,7 @@
+{
+  "text": "To install Guardrails AI, you can use pip. Run the following command in your terminal:\n\npip install guardrails-ai\n\nAfter installing the core package, you need to configure the CLI and download the specific validators you plan to use from the Guardrails Hub. \n\n1. Initialize the Guardrails CLI:\n   guardrails configure\n\n2. Install a specific validator (for example, for regex matching or JSON schema validation):\n   guardrails hub install hub://guardrails/regex_match\n\nYou can then import Guardrails in your Python script:\n\nimport guardrails as gd\nfrom guardrails.hub import RegexMatch\n\n# Initialize Guard with desired validators\nguard = gd.Guard.from_string(\n    validators=[RegexMatch(regex=\"^[A-Za-z0-9]+$\")],\n    description=\"Example validation guard\"\n)",
+  "source": "chatgpt",
+  "task": "Prüfe die vom Benutzer unverändert aus ChatGPT eingefügte Installationsanleitung gegen die geltenden Projektanforderungen und den belegten aktuellen Softwarebestand. Keine Installationen oder Hub-Downloads ausführen. Unterscheide generische Neuinstallation von unnötiger erneuter Installation in diesem bestehenden Projekt. Beurteile API-Verfügbarkeit nur anhand verifizierter Fakten; unbekannte Angaben ausdrücklich offenlassen.",
+  "recommendations": [],
+  "extraction_status": "unknown"
+}

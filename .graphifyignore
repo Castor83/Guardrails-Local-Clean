@@ -1,0 +1,13 @@
+# Protected reference copies and private runtime / handoff artifacts.
+sources/
+work/
+logs/
+
+# The project map covers code only; no semantic document/image extraction.
+*.md
+*.txt
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.webp

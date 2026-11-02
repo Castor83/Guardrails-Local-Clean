@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "critic_enabled": false,
+  "session_ids": [
+    "01a14629-82fe-7191-994d-1e5cef199406",
+    "01a14667-d8e8-7b60-ab87-1f086da992b7",
+    "01a146bd-1415-7ad2-b4c0-2aec56579567",
+
+    "01a14720-7f88-7da3-b581-170d03ea0fa3"
+  ],
+  "workflow_session_ids": [
+    "01a14667-d8e8-7b60-ab87-1f086da992b7",
+    "01a146bd-1415-7ad2-b4c0-2aec56579567",
+
+    "01a14720-7f88-7da3-b581-170d03ea0fa3"
+  ]
+}

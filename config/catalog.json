@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "reviewed_at": "2026-10-16",
+  "hardware_vram_gb": 16,
+  "models": {
+    "gpt-4o": {
+      "family": "gpt-4o",
+      "provider": "openai",
+      "execution": "cloud_api",
+      "api_cost_required": true,
+      "abliterated_verified": false,
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-4o"
+      ],
+      "note": "GPT-4o als OpenAI-API-Angebot, kein lokales Ollama-Gewicht. Kein unabhängiger VRAM-Verstoß ableitbar."
+    },
+    "huihui_ai/gpt-oss-abliterated:20b-mxfp4": {
+      "family": "gpt-oss",
+      "provider": "ollama_local",
+      "execution": "local",
+      "api_cost_required": false,
+      "abliterated_verified": true,
+      "digest": "81c701845c4945940852ba02e3fda8b919cd513da988eec9e3b4cd7bde243b4c",
+      "package_bytes": 13792656623,
+      "quantization_display": "F16",
+      "variant": "Huihui gpt-oss 20b MXFP4 abliterated v2",
+      "sources": [
+        "https://ollama.com/huihui_ai/gpt-oss-abliterated:20b-mxfp4",
+        "https://huggingface.co/huihui-ai/Huihui-gpt-oss-20b-mxfp4-abliterated-v2"
+      ],
+      "local_evidence": "api/tags und api/show am 16.10.2026: Digest, family gpt-oss, general.finetune=mxfp4-abliterated, base_model Huihui BF16 Abliterated v2; öffentlicher Ollama-Digestpräfix stimmt überein.",
+      "hardware_evidence": {
+        "context_tokens": 16384,
+        "ollama_reported_size_gb": 12,
+        "processor": "100% GPU",
+        "source": "Benutzerübergabe Abschnitt 6.4, historisch dokumentierte Ausgabe, nicht aktuelle Messung"
+      },
+      "functional_quality_verified": false,
+      "note": "Abliterationsherkunft durch Anbieterquelle und lokale Paketmetadaten belegt, keine eigene Gewichts-Differenzanalyse oder allgemeine Verhaltensgarantie. F16 ist grobe GGUF-Anzeige, Tensorformate wurden nicht vollständig analysiert.",
+      "current_measurement_4096": {
+        "context_tokens": 4096,
+        "size_bytes": 12739621682,
+        "size_vram_bytes": 12739621682,
+        "source": "api/ps während Live-Test 16.10.2026; work/live-local-monitor.json",
+        "functional_quality_verified": false
+      }
+    }
+  },
+  "software_evidence": {
+    "guardrails_ai_version": "0.11.0",
+    "interpreter": "C:\\Users\\REDACTED_USER\\.venv\\Scripts\\python.exe",
+    "guard_from_string_available": false,
+    "guard_for_string_available": true,
+    "guard_for_string_signature": "(validators: Sequence[guardrails.validator_base.Validator], *, string_description: Optional[str] = None, reask_messages: Optional[List[Dict]] = None, messages: Optional[List[Dict]] = None, name: Optional[str] = None, description: Optional[str] = None)",
+    "regex_match_hub_import_declared": false,
+    "regex_match_validator_distribution_installed": false,
+    "evidence": "Lokale inspect/hasattr-Prüfung und Paketmetadaten 16.10.2026. Keine Installations- oder Hub-Befehle ausgeführt.",
+    "note": "Das Paket regex allein ist kein Guardrails-RegexMatch-Validator. Bereits installierter eigener LocalModelPolicy ist funktionsfähig.",
+    "reviewed_code_examples": {
+      "655505061310237da782c5387de66d3cddc7f254282c243dfb54d313e62923bd": {
+        "intent": "recommended_executable",
+        "verification_method": "Host hat die ausdrücklich positive Codeeinleitung im vom Benutzer gelieferten Text gelesen.",
+        "evidence_quote": "You can then import Guardrails in your Python script:",
+        "source": "Manuell übernommene ChatGPT-Antwort, Benutzerangabe16.10.2026"
+      }
+    }
+  }
+}

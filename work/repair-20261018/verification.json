@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-10-18T00:16:47.722348+00:00",
+  "command": [
+    "C:\\Users\\REDACTED_USER\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "returncode": 0,
+  "tests": 296,
+  "test_seconds": 67.984,
+  "duration_seconds": 70.375,
+  "tree_before": "8c98b8cb9154558965da21d6e733e421f94dc12a7c2a4de8ed250f5a8ef0e4b8",
+  "tree_after": "8c98b8cb9154558965da21d6e733e421f94dc12a7c2a4de8ed250f5a8ef0e4b8",
+  "tree_unchanged": true,
+  "protected_before": {
+    "E:\\Guardrails-Local\\config\\workflow-policy.json": "9d0b6efbd31e5c8f845d2a92d817a5335ba911c000df3759bfae6c998bf249b0",
+    "E:\\Guardrails-Local\\work\\codex\\config.json": "dda871242dce76dfe60630cb1679a8dd5b3788607142d93643aa92efdfd51e4d",
+    "C:\\Users\\REDACTED_USER\\.codex\\hooks.json": "1bea621d4a36717837671e7268d97bb4e3407942f79eae21c0f1ae3963a3089c"
+  },
+  "protected_after": {
+    "E:\\Guardrails-Local\\config\\workflow-policy.json": "9d0b6efbd31e5c8f845d2a92d817a5335ba911c000df3759bfae6c998bf249b0",
+    "E:\\Guardrails-Local\\work\\codex\\config.json": "dda871242dce76dfe60630cb1679a8dd5b3788607142d93643aa92efdfd51e4d",
+    "C:\\Users\\REDACTED_USER\\.codex\\hooks.json": "1bea621d4a36717837671e7268d97bb4e3407942f79eae21c0f1ae3963a3089c"
+  },
+  "protected_unchanged": true,
+  "log_path": "E:\\Guardrails-Local\\work\\repair-20261018\\full-tests.txt",
+  "log_sha256": "632a91e489ecdf63b7c53e613982f799d08c1d755ce042e8c5d403b2b859680b",
+  "native_workflow_acceptance": false,
+  "model_quality_verified": false,
+  "scope": "Manual CPU/unit-contract run against the current checkout; no native task or hook activation fabricated.",
+  "task_source": "Exact repair requests present in this chat, manually recorded; not a native UserPromptSubmit binding.",
+  "user_requests": [
+    "JA und reparieren oder was?",
+    "es sollen für jede gesprächs art eigene regeln gelten und du baust jetzt die richtigen regeln aus den bausteinen die du dir runterladen kannst",
+    "DAS HABEN WIR IN DEM PROJEKT PLAN FESTGEHALTEN!!!!!!"
+  ],
+  "status": "PASS"
+}

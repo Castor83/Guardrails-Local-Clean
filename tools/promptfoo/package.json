@@ -1,0 +1,13 @@
+{
+  "name": "guardrails-local-promptfoo-regressions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pinned project-local Promptfoo; no lifecycle scripts or cloud usage",
+  "dependencies": {
+    "promptfoo": "0.124.1",
+    "@libsql/win32-x64-msvc": "0.5.29"
+  },
+  "overrides": {
+    "libsql": "0.5.29"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "framework": "promptfoo",
+  "version": "0.124.1",
+  "synthetic_fixtures": true,
+  "live_model_quality_verified": false,
+  "model_called": false,
+  "global_installation": false,
+  "exit_code": 0,
+  "log_path": "E:\\Guardrails-Local\\work\\promptfoo-runtime\\eval-1f7ad29aba0743e7a5e6762db2daebc2.txt",
+  "result_path": "E:\\Guardrails-Local\\work\\promptfoo-runtime\\runs\\4d2fe89d5b734110aaf6bbf755692968.json",
+  "lock_sha256": "ed3394c1a40c9e721d1ffc43b5457e564f1d51c97963040f63ceb7d5beea4dad",
+  "artifact_sha256": {
+    "cases.json": "50de4743f7c9e49c299259e848edd5d44a5352c8c162fbcc98b5cf08d39d2357",
+    "config.json": "e1dd0a47c3cf7c63f923316a231b8204c1fd6104ec8897584689990881a5adb3",
+    "provider.py": "30897a58606969c7c6c779e831ffda47e0011a8b95ae82fab234ed221ec2553a",
+    "offline.cjs": "7c02c0c3a7941606ce82a7f3815e367bb54a0dddcbeb0a956f5c4576b1af1fee"
+  },
+  "passed": 8,
+  "failed": 0,
+  "errors": 0,
+  "case_ids": [
+    "unbacked_chat_search",
+    "wrong_chat_title",
+    "honest_uncertainty",
+    "explicit_length_bound",
+    "preserve_contract_on_correction",
+    "error_has_no_retry",
+    "unverified_has_no_retry",
+    "correction_budget"
+  ],
+  "checked_at": "2026-10-20T16:28:31.090346+00:00",
+  "scope": "Echte Promptfoo-CLI und Produktpipeline mit explizit synthetischen semantischen Testurteilen."
+}

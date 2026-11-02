@@ -1,0 +1,1 @@
+Verwende huihui_ai/gpt-oss-abliterated:20b-mxfp4 lokal über Ollama mit Kontext 16384.

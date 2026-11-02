@@ -1,0 +1,138 @@
+{
+  "updated_at_utc": "2026-10-23T18:11:42.210701+02:00",
+  "goal": "Zuverlässiger Assistent: Vorgaben und Entscheidungen automatisch prüfen, belegte Fehler zurückweisen und selbst korrigieren, Abschlüsse anhand tatsächlicher Belege kontrollieren. Gilt über Forge hinaus.",
+  "source": "E:\\Guardrails-Local\\work\\codex\\sessions\\01a14667-d8e8-7b60-ab87-1f086da992b7\\tasks\\d252902e-07ad-4d10-beed-39ed8ab07806\\original-task.txt",
+  "source_type": "historical exact native user prompt; goal remains binding",
+  "overall_status": "NOT_ACCEPTED",
+  "criteria": [
+    {
+      "id": "REQUIREMENTS",
+      "goal": "Tatsächliche Vorgaben des aktuellen Auftrags kontrollieren",
+      "state": "partial",
+      "existing": "Exact task binding, scoped workflow and six bounded profiles; general semantic contract incomplete",
+      "gap": "Allgemeiner, quellengebundener Auftragsvertrag mit vollständiger Regelzuordnung fehlt"
+    },
+    {
+      "id": "DECISIONS",
+      "goal": "Widersprüche zu früheren bestätigten Entscheidungen erkennen",
+      "state": "open",
+      "existing": "Statischer Fakten- und Modellkatalog",
+      "gap": "Keine allgemeine Entscheidungsablage mit Geltungsbereich, Quelle und nachgewiesener Widerspruchsprüfung"
+    },
+    {
+      "id": "REJECTION",
+      "goal": "Belegte Verletzungen vor Freigabe oder Umsetzung zurückweisen",
+      "state": "partial",
+      "existing": "Bounded host corrections, prepared action gate, scoped same-turn tool/title receipts with unit contracts",
+      "gap": "No guaranteed pre-display interception or current trusted native receipt/correction acceptance; linguistic coverage bounded"
+    },
+    {
+      "id": "CORRECTION",
+      "goal": "Beanstandete Ergebnisse selbst korrigieren und erneut prüfen",
+      "state": "partial",
+      "existing": "Maximal zwei hostgesteuerte Korrekturaufforderungen; Offline-Tests",
+      "gap": "Kein belegter allgemeiner nativer Erfolg einer Fehlerkorrektur; Critic-only FAIL wegen unzuverlässiger Befunde ohne Umschreibeschleife"
+    },
+    {
+      "id": "COMPLETION",
+      "goal": "Erledigt erst nach erfüllten aufgabenspezifischen Abschlusskriterien",
+      "state": "open",
+      "existing": "Prüfberichte und Audit, historische Produkttests",
+      "gap": "Keine allgemeine Bindung von Fertigmeldung an tatsächliche Abschlussbelege für den konkreten Arbeitsstand"
+    }
+  ],
+  "next_required_work": "Approved native test attempt ended during metadata preparation. Offline helper corrected and seven fixture checks passed. No automatic live retry; reuse the single existing testchat for an explicitly restarted attempt. No productive activation.",
+  "limits_unchanged": [
+    "Authoritative current installation rule: config/workflow-policy.json / NO_NEW_RUNTIME; necessary project-local additions for commissioned setup allowed, no additional cloud judges/paid APIs/provider switch.",
+    "At most two corrections; no automatic retry on ERROR/UNVERIFIED",
+    "No critic allegations treated as user instructions",
+    "Existing 6000-character task / 8500-byte critic limits retained"
+  ],
+  "scope_note": "This file records the actual backlog; it is not loaded by the current validator and does not implement the missing checks.",
+  "latest_implementation": {
+    "tests": 150,
+    "workflow_hook": "enabled/untrusted",
+    "report": "C:\\Users\\REDACTED_USER\\Documents\\Codex\\2026-10-16\\guardrails-local-hook-fortsetzung\\outputs\\Guardrails-Workflow-Integration.md",
+    "overall_status": "PARTIAL; semantic coverage and native action activation unaccepted",
+    "commit": "8955678bcf2460dc4faff53650c2217786b8772f",
+    "final_precheck": "FAIL",
+    "semantic_general_compliance": "UNVERIFIED"
+  },
+  "current_repair": {
+    "updated_at_utc": "2026-10-18T02:18:28.274503+02:00",
+    "status": "IMPLEMENTED_TESTED_NOT_ACTIVATED",
+    "report": "C:\\Users\\REDACTED_USER\\Documents\\Codex\\2026-10-17\\guardrails-nli-deepeval-fortsetzung\\outputs\\Guardrails-Reparatur-und-Codex-Projekt.md",
+    "verification": "C:\\Users\\REDACTED_USER\\Documents\\Codex\\2026-10-17\\guardrails-nli-deepeval-fortsetzung\\outputs\\Guardrails-Reparatur-Pruefung.json",
+    "tests": 296,
+    "tree_sha256": "8c98b8cb9154558965da21d6e733e421f94dc12a7c2a4de8ed250f5a8ef0e4b8",
+    "native_workflow_acceptance": false,
+    "native_receipt_capture_verified": false,
+    "current_session_enabled": false,
+    "critic_enabled": false,
+    "migration_performed": true,
+    "semantic_general_compliance": "UNVERIFIED"
+  },
+  "project_transfer": {
+    "project_id": "baa6f714-3a69-42b0-81ca-694baaf7fa6c",
+    "root": "E:\\Guardrails-Local",
+    "completed_at_utc": "2026-10-18T02:44:32.621236+02:00",
+    "thread_id": "01a146ea-9298-7c13-b7ad-0d52596649f0",
+    "status": "COMPLETE",
+    "verification_path": "E:\\Guardrails-Local\\work\\codex-project-transfer\\verification.json"
+  },
+  "latest_offline_followup": {
+    "checked_at_utc": "2026-10-20T18:31:56.8011186+02:00",
+    "head": "49a21b2f5c02bf318d7b9cdc214b43d1351e7fb1",
+    "report": "E:/Guardrails-Local/work/resume-20261020/BERICHT.md",
+    "tests_run": 392,
+    "real_promptfoo_cases_passed": 8,
+    "activated": false,
+    "native_host_acceptance": "UNVERIFIED",
+    "overall_status": "NOT_ACCEPTED"
+  },
+  "latest_precheck_feedback": {
+    "implementation_commit": "a282418",
+    "enabled": false,
+    "tests_run": 435,
+    "targeted_tests": 34,
+    "verification": "E:\\Guardrails-Local\\work\\precheck-feedback-20261023\\verification.json",
+    "report": "E:\\Guardrails-Local\\work\\precheck-feedback-20261023\\ERGEBNIS.md",
+    "native_test_plan": "E:\\Guardrails-Local\\docs\\NATIVE-FEEDBACK-TESTPLAN.md",
+    "native_host_acceptance": "UNVERIFIED",
+    "overall_status": "NOT_ACCEPTED",
+    "scope": "At most two persistent corrections per explicit same-turn Task; cooperative offline contract only"
+  },
+  "latest_native_feedback_attempt": {
+    "status": "ERROR_PREPARATION",
+    "native_host_acceptance": "UNVERIFIED",
+    "activated": false,
+    "test_thread_id": "01a16997-5905-72f0-8537-a4a1b3f2bc4e",
+    "report": "E:\\Guardrails-Local\\docs\\NATIVE-FEEDBACK-TESTERGEBNIS.md",
+    "verification": "E:\\Guardrails-Local\\work\\native-feedback-20261023\\verification.json",
+    "rollback": "PASS_NO_MUTATION",
+    "automatic_retry": false
+  },
+  "scoped_acceptances": [
+    {
+      "scope_id": "OPENCODE_V2_DETERMINISTIC_PATHS",
+      "status": "ACCEPTED",
+      "decided_at_utc": "2026-10-24T01:36:31.2183997+02:00",
+      "scope": "OpenCode2.1.4: proven deterministic user binding, scoped test evidence and claim rejection, cross-kind separation, empty completion422 with observed no additional native POST",
+      "behavior_commit": "7e43a7620f77f973d5b28cce95c018028d149e5a",
+      "decision_document": "E:\\Guardrails-Local\\docs\\OPENCODE-V2-DETERMINISTIC-ACCEPTANCE.md",
+      "basis": "User-requested bounded scope and existing saved-artifact/source comparison; no additional human review",
+      "new_tests_run": 0,
+      "new_native_runs": 0,
+      "further_tests_required_for_this_scope": false,
+      "natural_inference_authorized": false,
+      "productive_activation_authorized": false,
+      "excluded": [
+        "Natural model quality",
+        "Historical empty-answer cause",
+        "General semantic task/decision compliance and correction",
+        "Productive host/dataflow isolation"
+      ],
+      "decision_commit": "d3e9c1b2fa4b8e307715a664a318da0bc4022ab7"
+    }
+  ]
+}
